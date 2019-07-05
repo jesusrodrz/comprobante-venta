@@ -1,0 +1,1076 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>CubeFast ERP | Lista de Ventas</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="Dashboard CubeFast" />
+    <meta name="author" content="Future Imagick">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+    <!-- bootstrap & fontawesome -->
+    <link href="cube_fast/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet"/>
+
+    <!--Custom CubeFast CSS-->
+    <link href="cube_fast/css/cubefastmaster.css" rel="stylesheet"/>
+
+    <!-- Menu CSS -->
+    <link href="plugins/bower_components/sidebar-nav/dist/sidebar-nav.min.css" rel="stylesheet"/>
+
+    <!-- DataTable CSS -->
+    <link href="plugins/bower_components/datatables/jquery.dataTables.min.css" rel="stylesheet"/>
+    <!-- animation CSS -->
+    <link href="cube_fast/css/animate.css" rel="stylesheet"/>
+
+    <!-- Custom CSS -->
+    <link href="cube_fast/css/style.css" rel="stylesheet"/>
+
+    <!-- color CSS -->
+    <link href="cube_fast/css/colors/default.css" id="theme" rel="stylesheet">
+    <!-- Date Picker CSS -->
+    <link href="plugins/bower_components/bootstrap-datepicker/css/bootstrap-datetimepicker.min.css" rel="stylesheet"/>
+    <!-- toast CSS Alert -->
+    <link href="plugins/bower_components/toast-master/css/jquery.toast.css" rel="stylesheet"/>
+
+    <!-- Typehead CSS -->
+    <link href="plugins/bower_components/typeahead.js-master/dist/typehead-min.css" rel="stylesheet"/>
+
+    <!-- Jspanel CSS -->
+    <link href="plugins/jspanel/jquery.jspanel.css" rel="stylesheet"/>
+
+    <!-- Boostrapvalidator css -->
+    <link href="plugins/bower_components/bootstrapvalidator-0.5.2/dist/css/bootstrapValidator.css" rel="stylesheet"/>
+
+    <!-- dropify css -->
+    <link rel="stylesheet" href="/plugins/bower_components/dropify/dist/css/dropify.min.css">
+    <!--Core jquery-->
+    <script src="plugins/bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="plugins/bower_components/blockUI/jquery.blockUI.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.js"></script>
+    <!-- Moment Js -->
+    <script src="plugins/bower_components/moment/moment.js"></script>
+
+    <script src="plugins/bower_components/moment/min/locales.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="cube_fast/bootstrap/dist/js/bootstrap.min.js"></script>
+
+    <!-- Menu Plugin JavaScript -->
+    <script src="plugins/bower_components/sidebar-nav/dist/sidebar-nav.min.js"></script>
+    <!--Data Table JS-->
+    <script src="plugins/bower_components/datatables/jquery.dataTables.min.js"></script>
+    <!--Date picker js-->
+    <script src="plugins/bower_components/bootstrap-datepicker/js/bootstrap-datetimepicker.min.js"></script>
+    <!--Bootstrap validator js-->
+    <script src="plugins/bower_components/bootstrapvalidator-0.5.2/dist/js/bootstrapValidator.min.js"></script>
+    <!-- Sweet-Alert  -->
+    <script src="plugins/bower_components/sweetalert/sweetalert2.all.js"></script>
+    <link href="plugins/bower_components/sweetalert/sweetalert2.min.css" rel="stylesheet" type="text/css">
+    <!-- DataTables -->
+    <script src="plugins/bower_components/datatables/jquery.dataTables.min.js"></script>
+    <!-- Typehead JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-3-typeahead/4.0.1/bootstrap3-typeahead.min.js"></script>
+    <!-- Jspanel JS -->
+    <script src="plugins/jspanel/jquery.jspanel-compiled.min.js"></script>
+    <!-- dropify JS -->
+    <script src="plugins/bower_components/dropify/dist/js/dropify.min.js"></script>
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body class="fix-header">
+    <!-- Preloader -->
+    <div class="preloader">
+        <svg class="circular" viewBox="25 25 50 50">
+            <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10" />
+        </svg>
+    </div>
+    <!-- Wrapper -->
+    <div id="wrapper">
+        <!-- Topbar header - style you can find in pages.scss -->
+        <nav class="navbar navbar-default navbar-static-top m-b-0">
+            <div class="navbar-header">
+                <div class="top-left-part">
+                    <!-- Logo -->
+                    <a class="logo" href="/Inicio/main">
+                        <!-- Logo icon image, you can use font-icon also -->
+                        <b>
+                            <!--This is dark logo icon-->
+                            <img Alt="home" Src="plugins/images/admin-logo-dark.png" class="light-logo" />
+                        </b>
+                        <!-- Logo text image you can use text also -->
+                        <span class="hidden-xs">
+                            <!--This is dark logo text-->
+                            <img Alt="home" Src="plugins/images/admin-text-dark.png" class="light-logo" />
+                        </span>
+                    </a>
+                </div>
+                <!-- End Logo -->
+                <!-- ======== -->
+                <!--Menu Header-->
+                <!-- Toggle Icon Menu -->
+                <ul class="nav navbar-top-links navbar-left">
+                    <li><a href="javascript:void(0)" class="open-close waves-effect waves-light"><i class="ti-menu"></i></a></li>
+                </ul>
+                <!-- End Toggle Icon Menu -->
+                <!-- Menu User-->
+                <ul class="nav navbar-top-links navbar-right pull-right">
+                    <li>
+                        <form role="search" class="app-search hidden-sm hidden-xs m-r-10">
+                            <input type="text" placeholder="Search..." class="form-control"> <a href=""><i class="fa fa-search"></i></a>
+                        </form>
+                    </li>
+                    <li class="dropdown">
+                        <a class="dropdown-toggle profile-pic" data-toggle="dropdown" href="#">
+                            <img Alt="Usuario" Src="plugins/images/users/varun.jpg" class="img-circle" width="36" />
+                            <b class="hidden-xs">Roberto Carlos</b><span class="caret"></span>
+                        </a>
+                        <!-- Dropdown-User-->
+                        <ul class="dropdown-menu dropdown-user animated flipInY">
+                            <li>
+                                <div class="dw-user-box">
+                                    <div class="u-img"><img Alt="Usuario" Src="plugins/images/users/varun.jpg" /></div>
+                                    <div class="u-text">
+                                        <h4>Roberto Carlos, Osco Artica</h4>
+                                        <p class="text-muted">robertooa@gmail.com</p><a href="Usuario/Perfil/3" class="btn btn-rounded btn-danger btn-sm">Ver Perfil</a>
+                                    </div>
+                                </div>
+                            </li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="Usuario/Perfil/3"><i class="ti-user"></i> My Perfil</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="Usuario/PerfilContrasena/3"><i class="ti-settings"></i> Configuración de Cuenta</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="/Inicio/Logout"><i class="fa fa-power-off"></i> Salir</a></li>
+                        </ul>
+                        <!--/.dropdown-user -->
+                    </li>
+                </ul>
+                <!-- End-User -->
+            </div>
+            <!-- /.navbar-header -->
+            <!-- /.navbar-top-links -->
+            <!-- /.navbar-static-side -->
+        </nav>
+        <!-- ================ -->
+        <!-- Lef Sidebar Menu -->
+        <div class="navbar-default sidebar" role="navigation">
+            <div class="sidebar-nav slimscrollsidebar">
+                <div class="sidebar-head">
+                    <h3>
+                        <span class="fa-fw open-close"><i class="ti-close ti-menu"></i></span>
+                        <span class="hide-menu">Menú</span>
+                    </h3>
+                </div>
+                <!-- User Widget -->
+                <div class="user-profile">
+                    <div class="dropdown user-pro-body">
+                        <div><img Alt="Usuario" Src="plugins/images/users/varun.jpg" class="img-circle" /></div>
+                        <a href="#" class="dropdown-toggle u-dropdown" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Roberto Carlos, Osco Artica<span class="caret"></span></a>
+                        <ul class="dropdown-menu animated flipInY">
+                            <li><a href="/Usuario/Perfil/3"><i class="ti-user"></i> My Perfil</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="#"><i class="ti-settings"></i> Configuración cuenta</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="/Inicio/Logout"><i class="fa fa-power-off"></i> Cerrar session</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- End User -->
+<ul class="nav" id="side-menu">
+    <li><a href='#' class='waves-effect'><i class='mdi mdi-security fa-fw'></i><span class='hide-menu'>Seguridad</span> <span class='fa arrow'></span></a><ul class='nav nav-second-level collapse' aria-expanded='false'>
+<li>
+<a href='/Seguridad/Seg/ListaPagina'><i class='fa-fw'>P</i><span class='hide-menu'>Página</span></a></li>
+<li>
+<a href='/Seguridad/Menu/Lista'><i class='fa-fw'>M</i><span class='hide-menu'>Menú</span></a></li>
+<li>
+<a href='/Seguridad/Rol/Lista'><i class='fa-fw'>R</i><span class='hide-menu'>Rol</span></a></li>
+<li>
+<a href='/Seguridad/Usuario/Lista'><i class='fa-fw'>U</i><span class='hide-menu'>Usuario</span></a></li>
+<li>
+<a href='/Seguridad/Seg/ModuloLista'><i class='fa-fw'>M</i><span class='hide-menu'>Modulo</span></a></li>
+</ul>
+</li><li><a href='#' class='waves-effect'><i class='mdi mdi-cart fa-fw'></i><span class='hide-menu'>Comercial</span> <span class='fa arrow'></span></a><ul class='nav nav-second-level collapse' aria-expanded='false'>
+<li>
+<a href='/Ventas/Cotizacion/Lista'><i class='fa-fw'>C</i><span class='hide-menu'>Cotizaciones</span></a></li>
+<li>
+<a href='/Ventas/OrdenVenta/Lista'><i class='fa-fw'>O</i><span class='hide-menu'>Orden de Venta</span></a></li>
+<li>
+<a href='/Ventas/CompVenta/Lista'><i class='fa-fw'>C</i><span class='hide-menu'>Comprobante Venta</span></a></li>
+<li>
+<a href='/Ventas/CondicionComercial/Lista'><i class='fa-fw'>C</i><span class='hide-menu'>Condición Comercial</span></a></li>
+<li>
+<a href='/Ventas/FormaPago/Lista'><i class='fa-fw'>F</i><span class='hide-menu'>Forma de Pago</span></a></li>
+<li>
+<a href='/Ventas/FacturaElectronica/Lista'><i class='fa-fw'>F</i><span class='hide-menu'>Facturación Electrónica</span></a></li>
+<li>
+<a href='/Ventas/GuiaRemision/Lista'><i class='fa-fw'>G</i><span class='hide-menu'>Guías de Remisión</span></a></li>
+<li>
+<a href='/Ventas/OrdenCompra/Lista'><i class='fa-fw'>O</i><span class='hide-menu'>Orden de compra - clientes</span></a></li>
+<li>
+<a href='/Ventas/PuntoVenta/CajaVenta'><i class='fa-fw'>P</i><span class='hide-menu'>Punto Venta</span></a></li>
+<li>
+<a href='/Almacen/ArticuloPrecioVenta/VistaVenta'><i class='fa-fw'>P</i><span class='hide-menu'>Precio Artículo</span></a></li>
+<li>
+<a href='#' class='waves-effect'>
+<i class='mdi mdi-chart-bar' style='margin-right:7px'></i> 
+<span class='hide-menu'>Reportes</span> <span class='fa arrow'></span></a>
+<ul class='nav nav-third-level collapse' aria-expanded='false'>
+<li>
+<a href='/reporte/Venta/VentasDetalle'><i class='fa-fw'>V</i><span class='hide-menu'>Ventas por Fecha</span></a></li>
+<li>
+<a href='/Reporte/Venta/CotiResumenPorFecha'><i class='fa-fw'>C</i><span class='hide-menu'>Cotizaciones - Resumen</span></a></li>
+<li>
+<a href='/Reporte/Venta/CotizacionesLista'><i class='fa-fw'>C</i><span class='hide-menu'>Cotizaciones Lista</span></a></li>
+<li>
+<a href='/Reporte/Venta/VentasMesGrafico'><i class='fa-fw'>V</i><span class='hide-menu'>Ventas Por Mes Grafico</span></a></li>
+<li>
+<a href='/Reporte/Venta/CotizacionDetalleLista'><i class='fa-fw'>C</i><span class='hide-menu'>Cotizacion Detalle Lista</span></a></li>
+<li>
+<a href='/Reporte/Venta/ListaVentaDetalla'><i class='fa-fw'>V</i><span class='hide-menu'>Ventas detalle</span></a></li>
+<li>
+<a href='/Reporte/Venta/RegistroVenta'><i class='fa-fw'>R</i><span class='hide-menu'>Registro de Ventas</span></a></li>
+</ul>
+</li>
+</ul>
+</li><li><a href='#' class='waves-effect'><i class='mdi mdi-home-modern fa-fw'></i><span class='hide-menu'>Gestión de Almacén</span> <span class='fa arrow'></span></a><ul class='nav nav-second-level collapse' aria-expanded='false'>
+<li>
+<a href='#' class='waves-effect'>
+<i class='ti-clipboard' style='margin-right:7px'></i> 
+<span class='hide-menu'>Maestros</span> <span class='fa arrow'></span></a>
+<ul class='nav nav-third-level collapse' aria-expanded='false'>
+<li>
+<a href='/Almacen/MaestroAlmacen/Lista'><i class='fa-fw'>M</i><span class='hide-menu'>Maestro de Almacén</span></a></li>
+<li>
+<a href='/Almacen/ClaseAlmacen/Lista'><i class='fa-fw'>C</i><span class='hide-menu'>Clase de Almacén</span></a></li>
+<li>
+<a href='/Almacen/CategoriaArticulo/Clasificacion'><i class='fa-fw'>C</i><span class='hide-menu'>Categoría de Artículos</span></a></li>
+<li>
+<a href='/Almacen/SubCategoria/Lista'><i class='fa-fw'>S</i><span class='hide-menu'>Sub Categoría Artículo</span></a></li>
+<li>
+<a href='/Almacen/Articulo/Lista'><i class='fa-fw'>M</i><span class='hide-menu'>Maestro de artículos</span></a></li>
+<li>
+<a href='/Almacen/Periodo/Lista'><i class='fa-fw'>P</i><span class='hide-menu'>Período</span></a></li>
+<li>
+<a href='/Almacen/ArticuloPrecioVenta/Lista'><i class='fa-fw'>A</i><span class='hide-menu'>Articulo Precio Venta</span></a></li>
+<li>
+<a href='/Almacen/Motivo/Lista'><i class='fa-fw'>M</i><span class='hide-menu'>Maestro de Motivos</span></a></li>
+<li>
+<a href='/Almacen/Articulo/ListaHabilitados'><i class='fa-fw'>L</i><span class='hide-menu'>Lista Materiales Habilitados</span></a></li>
+</ul>
+</li>
+<li>
+<a href='#' class='waves-effect'>
+<i class='icon-directions' style='margin-right:7px'></i> 
+<span class='hide-menu'>Movimientos</span> <span class='fa arrow'></span></a>
+<ul class='nav nav-third-level collapse' aria-expanded='false'>
+<li>
+<a href='/Almacen/MovEntrada/Lista'><i class='fa-fw'>L</i><span class='hide-menu'>Lista Entradas</span></a></li>
+<li>
+<a href='/Almacen/MovSalida/Lista'><i class='fa-fw'>L</i><span class='hide-menu'>Lista de Salidas</span></a></li>
+<li>
+<a href='/Almacen/StockArticulo/Lista'><i class='fa-fw'>S</i><span class='hide-menu'>Stock Articulo</span></a></li>
+</ul>
+</li>
+<li>
+<a href='#' class='waves-effect'>
+<i class='ti-write' style='margin-right:7px'></i> 
+<span class='hide-menu'>Inventario Físico</span> <span class='fa arrow'></span></a>
+<ul class='nav nav-third-level collapse' aria-expanded='false'>
+<li>
+<a href='/Almacen/InventarioFisico/Lista'><i class='fa-fw'>I</i><span class='hide-menu'>Inventario de materiales</span></a></li>
+<li>
+<a href='/Almacen/InventarioPersona/Lista'><i class='fa-fw'>I</i><span class='hide-menu'>Inventario por persona</span></a></li>
+</ul>
+</li>
+<li>
+<a href='#' class='waves-effect'>
+<i class='fa fa-exchange' style='margin-right:7px'></i> 
+<span class='hide-menu'>Devoluciones</span> <span class='fa arrow'></span></a>
+<ul class='nav nav-third-level collapse' aria-expanded='false'>
+<li>
+<a href='/Almacen/OrdenDevolucion/ListaProduccion'><i class='fa-fw'>P</i><span class='hide-menu'>Producción</span></a></li>
+<li>
+<a href='/Almacen/OrdenDevolucion/ListaOrdenInterna'><i class='fa-fw'>O</i><span class='hide-menu'>Oden Interna</span></a></li>
+<li>
+<a href='/Almacen/OrdenDevolucion/ListaMaquinaria'><i class='fa-fw'>M</i><span class='hide-menu'>Maquinaria</span></a></li>
+<li>
+<a href='/Almacen/OrdenDevolucion/ListaAdministracion'><i class='fa-fw'>A</i><span class='hide-menu'>Administrativo</span></a></li>
+</ul>
+</li>
+<li>
+<a href='#' class='waves-effect'>
+<i class='mdi mdi-poll-box' style='margin-right:7px'></i> 
+<span class='hide-menu'>Reportes</span> <span class='fa arrow'></span></a>
+<ul class='nav nav-third-level collapse' aria-expanded='false'>
+<li>
+<a href='/Reporte/Almacen/KardexConsolidado'><i class='fa-fw'>K</i><span class='hide-menu'>Kardex consolidado</span></a></li>
+</ul>
+</li>
+<li>
+<a href='#' class='waves-effect'>
+<i class='ti-hummer' style='margin-right:7px'></i> 
+<span class='hide-menu'>Requerimiento</span> <span class='fa arrow'></span></a>
+<ul class='nav nav-third-level collapse' aria-expanded='false'>
+<li>
+<a href='/Almacen/Requerimiento/ListaProduccion'><i class='fa-fw'>L</i><span class='hide-menu'>Lista Producción</span></a></li>
+<li>
+<a href='/Almacen/Requerimiento/ListaAdministracion'><i class='fa-fw'>L</i><span class='hide-menu'>Lista Administración</span></a></li>
+<li>
+<a href='/Almacen/Requerimiento/ListaOrdenInterna'><i class='fa-fw'>O</i><span class='hide-menu'>Orden Interna</span></a></li>
+<li>
+<a href='/Almacen/Requerimiento/ListaMaquinaria'><i class='fa-fw'>M</i><span class='hide-menu'>Maquinaria</span></a></li>
+<li>
+<a href='/Almacen/Requerimiento/ListaTerceros'><i class='fa-fw'>S</i><span class='hide-menu'>Servicios de Terceros</span></a></li>
+</ul>
+</li>
+</ul>
+</li><li><a href='#' class='waves-effect'><i class='mdi mdi-square-inc-cash fa-fw'></i><span class='hide-menu'>Costo</span> <span class='fa arrow'></span></a><ul class='nav nav-second-level collapse' aria-expanded='false'>
+<li>
+<a href='#' class='waves-effect'>
+<i class='' style='margin-right:7px'></i> 
+<span class='hide-menu'>Costo de Importación</span> <span class='fa arrow'></span></a>
+<ul class='nav nav-third-level collapse' aria-expanded='false'>
+<li>
+<a href='/Costo/CostoImportacion/Lista'><i class='fa-fw'>L</i><span class='hide-menu'>Lista Importaciones</span></a></li>
+</ul>
+</li>
+<li>
+<a href='#' class='waves-effect'>
+<i class='' style='margin-right:7px'></i> 
+<span class='hide-menu'>Proceso de Costos</span> <span class='fa arrow'></span></a>
+<ul class='nav nav-third-level collapse' aria-expanded='false'>
+<li>
+<a href='/Costo/ValorProceso/Lista'><i class='fa-fw'>V</i><span class='hide-menu'>Valores para el costeo</span></a></li>
+<li>
+<a href='/Costo/ElementoCosto/Lista'><i class='fa-fw'>E</i><span class='hide-menu'>Elementro de Costos</span></a></li>
+<li>
+<a href='/Costo/ObjetoCosto/Lista'><i class='fa-fw'>O</i><span class='hide-menu'>Objeto de costo</span></a></li>
+<li>
+<a href='/Costo/InterfazAlmacen/Lista'><i class='fa-fw'>I</i><span class='hide-menu'>Interfaz Almacén</span></a></li>
+<li>
+<a href='/Costo/InterfazAlmacenArea/Lista'><i class='fa-fw'>I</i><span class='hide-menu'>Interfaz de alamcen - area</span></a></li>
+<li>
+<a href='/Costo/InterfazControlPlanta/Lista'><i class='fa-fw'>I</i><span class='hide-menu'>Interfaz control de planta</span></a></li>
+<li>
+<a href='/Costo/ProcesoCosto/Lista'><i class='fa-fw'>P</i><span class='hide-menu'>Procesar Costo</span></a></li>
+</ul>
+</li>
+<li>
+<a href='#' class='waves-effect'>
+<i class='' style='margin-right:7px'></i> 
+<span class='hide-menu'>Kardex Valorizado</span> <span class='fa arrow'></span></a>
+<ul class='nav nav-third-level collapse' aria-expanded='false'>
+<li>
+<a href='/Costo/KardexValorizado/Lista'><i class='fa-fw'>K</i><span class='hide-menu'>Kardex de Materiales</span></a></li>
+<li>
+<a href='/Costo/KardexValorizado/ListaPT'><i class='fa-fw'>K</i><span class='hide-menu'>Kardex de PT</span></a></li>
+</ul>
+</li>
+</ul>
+</li><li><a href='#' class='waves-effect'><i class='mdi mdi-chart-areaspline fa-fw'></i><span class='hide-menu'>Finanzas</span> <span class='fa arrow'></span></a><ul class='nav nav-second-level collapse' aria-expanded='false'>
+<li>
+<a href='#' class='waves-effect'>
+<i class='mdi mdi-clipboard-check' style='margin-right:7px'></i> 
+<span class='hide-menu'>Liquidacion</span> <span class='fa arrow'></span></a>
+<ul class='nav nav-third-level collapse' aria-expanded='false'>
+<li>
+<a href='/Finanzas/Liquidacion/Lista'><i class='fa-fw'>L</i><span class='hide-menu'>Lista</span></a></li>
+</ul>
+</li>
+<li>
+<a href='#' class='waves-effect'>
+<i class='mdi mdi-bank' style='margin-right:7px'></i> 
+<span class='hide-menu'>Tesoreria</span> <span class='fa arrow'></span></a>
+<ul class='nav nav-third-level collapse' aria-expanded='false'>
+<li>
+<a href='/Finanzas/RegistroBanco/Lista'><i class='fa-fw'>B</i><span class='hide-menu'>Banco Egresos - Ingresos</span></a></li>
+<li>
+<a href='/Finanzas/CuentasPorPagar/Lista'><i class='fa-fw'>C</i><span class='hide-menu'>Cuentas por Pagar</span></a></li>
+<li>
+<a href='/Finanzas/LetrasPorPagar/Lista'><i class='fa-fw'>L</i><span class='hide-menu'>Letras por pagar</span></a></li>
+<li>
+<a href='/Finanzas/LetrasPorCobrar/Lista'><i class='fa-fw'>L</i><span class='hide-menu'>Letras por Cobrar</span></a></li>
+<li>
+<a href='/Finanzas/Cheque/Lista'><i class='fa-fw'>C</i><span class='hide-menu'>Cheque</span></a></li>
+<li>
+<a href='/Finanzas/Recibo/Lista'><i class='fa-fw'>R</i><span class='hide-menu'>Recibo</span></a></li>
+<li>
+<a href='/Finanzas/CuentasPorCobrar/Lista'><i class='fa-fw'>C</i><span class='hide-menu'>Cuentas por Cobrar</span></a></li>
+</ul>
+</li>
+<li>
+<a href='#' class='waves-effect'>
+<i class='mdi mdi-chart-bar' style='margin-right:7px'></i> 
+<span class='hide-menu'>Reportes</span> <span class='fa arrow'></span></a>
+<ul class='nav nav-third-level collapse' aria-expanded='false'>
+<li>
+<a href='/Reporte/Finanzas/CuentaPagarLista'><i class='fa-fw'>C</i><span class='hide-menu'>Cuentas por Pagar Lista</span></a></li>
+</ul>
+</li>
+<li>
+<a href='#' class='waves-effect'>
+<i class='mdi mdi-cash-multiple' style='margin-right:7px'></i> 
+<span class='hide-menu'>Caja Chica</span> <span class='fa arrow'></span></a>
+<ul class='nav nav-third-level collapse' aria-expanded='false'>
+<li>
+<a href='/Finanzas/CajaChica/AperturaCajaLista'><i class='fa-fw'>L</i><span class='hide-menu'>Lista Caja Chica</span></a></li>
+<li>
+<a href='/Finanzas/CajaChica/Lista'><i class='fa-fw'>C</i><span class='hide-menu'>Caja CHica Detalle</span></a></li>
+</ul>
+</li>
+</ul>
+</li><li><a href='#' class='waves-effect'><i class='mdi mdi-settings fa-fw'></i><span class='hide-menu'>Configuración</span> <span class='fa arrow'></span></a><ul class='nav nav-second-level collapse' aria-expanded='false'>
+<li>
+<a href='/General/Empresa/Empresa'><i class='fa-fw'>E</i><span class='hide-menu'>Empresa</span></a></li>
+<li>
+<a href='/General/Actividad/Lista'><i class='fa-fw'>A</i><span class='hide-menu'>Actividad</span></a></li>
+<li>
+<a href='/General/Banco/Lista'><i class='fa-fw'>B</i><span class='hide-menu'>Banco</span></a></li>
+<li>
+<a href='/General/CentroActividad/Lista'><i class='fa-fw'>C</i><span class='hide-menu'>Centro Actividad</span></a></li>
+<li>
+<a href='/General/EstadoCivil/Lista'><i class='fa-fw'>E</i><span class='hide-menu'>Estado Civil</span></a></li>
+<li>
+<a href='/GeneralAgenciaAduana/Lista'><i class='fa-fw'>A</i><span class='hide-menu'>Agencia Aduana</span></a></li>
+<li>
+<a href='/General/Parametro/Lista'><i class='fa-fw'>P</i><span class='hide-menu'>Parametros </span></a></li>
+<li>
+<a href='/General/Periodo/Lista'><i class='fa-fw'>P</i><span class='hide-menu'>Periodo Anual</span></a></li>
+<li>
+<a href='/General/Persona/Lista'><i class='fa-fw'>S</i><span class='hide-menu'>Socio de negocio</span></a></li>
+<li>
+<a href='/General/UnidadMedida/Lista'><i class='fa-fw'>U</i><span class='hide-menu'>Unidad de Medida</span></a></li>
+<li>
+<a href='/General/TipoCambio/Lista'><i class='fa-fw'>T</i><span class='hide-menu'>Tipo de cambio</span></a></li>
+<li>
+<a href='#' class='waves-effect'>
+<i class='ti-clipboard' style='margin-right:7px'></i> 
+<span class='hide-menu'>Maestros Generales</span> <span class='fa arrow'></span></a>
+<ul class='nav nav-third-level collapse' aria-expanded='false'>
+<li>
+<a href='/General/TipoBienServicio/Lista'><i class='fa-fw'>T</i><span class='hide-menu'>Tipo Bien Servicio</span></a></li>
+</ul>
+</li>
+</ul>
+</li><li><a href='#' class='waves-effect'><i class='mdi mdi-factory fa-fw'></i><span class='hide-menu'>Producción</span> <span class='fa arrow'></span></a><ul class='nav nav-second-level collapse' aria-expanded='false'>
+<li>
+<a href='#' class='waves-effect'>
+<i class='' style='margin-right:7px'></i> 
+<span class='hide-menu'>Control de planta</span> <span class='fa arrow'></span></a>
+<ul class='nav nav-third-level collapse' aria-expanded='false'>
+<li>
+<a href='/Produccion/ControlProduccion/ListaDetalle'><i class='fa-fw'>L</i><span class='hide-menu'>Lista Detalle</span></a></li>
+<li>
+<a href='/Produccion/OrdenTrabajo/ListaOTHHRealEstandar'><i class='fa-fw'>L</i><span class='hide-menu'>Lista OT HH Real vs Estandar</span></a></li>
+<li>
+<a href='/Produccion/MarcacionActividad/Lista'><i class='fa-fw'>L</i><span class='hide-menu'>Lista Marcación</span></a></li>
+<li>
+<a href='/Produccion/MarcacionActividad/SeleccionarActividad'><i class='fa-fw'>M</i><span class='hide-menu'>Marcacion Actividades</span></a></li>
+</ul>
+</li>
+<li>
+<a href='#' class='waves-effect'>
+<i class='mdi mdi-worker' style='margin-right:7px'></i> 
+<span class='hide-menu'>Ingenieria</span> <span class='fa arrow'></span></a>
+<ul class='nav nav-third-level collapse' aria-expanded='false'>
+<li>
+<a href='/Produccion/Categoria/Lista'><i class='fa-fw'>C</i><span class='hide-menu'>Catalogo de productos</span></a></li>
+<li>
+<a href='/Produccion/Caracteristica/Lista'><i class='fa-fw'>C</i><span class='hide-menu'>Caracteristicas</span></a></li>
+<li>
+<a href='/Produccion/Catalogo/Lista'><i class='fa-fw'>C</i><span class='hide-menu'>Catalogo de Caracteristicas</span></a></li>
+<li>
+<a href='/Produccion/RutaTercero/Lista'><i class='fa-fw'>R</i><span class='hide-menu'>Ruta Tercero</span></a></li>
+<li>
+<a href='/Produccion/Ruta/ComponenteLista'><i class='fa-fw'>R</i><span class='hide-menu'>Ruta Orden Interna</span></a></li>
+<li>
+<a href='/Produccion/Categoria/CategoriaCodigo'><i class='fa-fw'>C</i><span class='hide-menu'>Categoria Codigo</span></a></li>
+<li>
+<a href='/Produccion/Ruta/ProductoListaR'><i class='fa-fw'>R</i><span class='hide-menu'>Ruta Producto</span></a></li>
+</ul>
+</li>
+<li>
+<a href='#' class='waves-effect'>
+<i class='mdi mdi-package-variant-closed' style='margin-right:7px'></i> 
+<span class='hide-menu'>PCP</span> <span class='fa arrow'></span></a>
+<ul class='nav nav-third-level collapse' aria-expanded='false'>
+<li>
+<a href='/Produccion/OrdenServicio/Lista'><i class='fa-fw'>O</i><span class='hide-menu'>Orden de Servicio</span></a></li>
+<li>
+<a href='/Produccion/OrdenGarantia/Lista'><i class='fa-fw'>O</i><span class='hide-menu'>Orden de Garantia</span></a></li>
+<li>
+<a href='/Produccion/OrdenStock/Lista'><i class='fa-fw'>O</i><span class='hide-menu'>Orden de Stock</span></a></li>
+<li>
+<a href='/Produccion/OrdenProtoripo/Lista'><i class='fa-fw'>O</i><span class='hide-menu'>Orden de Prototipo</span></a></li>
+<li>
+<a href='/Produccion/OrdenTercero/Lista'><i class='fa-fw'>O</i><span class='hide-menu'>Orden Terceros</span></a></li>
+<li>
+<a href='/Produccion/OrdenInterna/Lista'><i class='fa-fw'>O</i><span class='hide-menu'>Orden Interna</span></a></li>
+<li>
+<a href='/Produccion/RequerimientoCompra/ListaPedidoMaterial'><i class='fa-fw'>L</i><span class='hide-menu'>Lista Pedido Material </span></a></li>
+<li>
+<a href='/Produccion/TerminarOrden/Lista'><i class='fa-fw'>T</i><span class='hide-menu'>Terminar Orden</span></a></li>
+<li>
+<a href='/Produccion/OrdenTrabajo/Lista'><i class='fa-fw'>O</i><span class='hide-menu'>Orden de Trabajo</span></a></li>
+<li>
+<a href='/Produccion/OrdenMaquinaria/Lista'><i class='fa-fw'>O</i><span class='hide-menu'>Orden de Maquinaria</span></a></li>
+</ul>
+</li>
+</ul>
+</li><li><a href='#' class='waves-effect'><i class='mdi mdi-human-male-female fa-fw'></i><span class='hide-menu'>Recursos Humanos</span> <span class='fa arrow'></span></a><ul class='nav nav-second-level collapse' aria-expanded='false'>
+<li>
+<a href='#' class='waves-effect'>
+<i class='icon-clock' style='margin-right:7px'></i> 
+<span class='hide-menu'>Marcación</span> <span class='fa arrow'></span></a>
+<ul class='nav nav-third-level collapse' aria-expanded='false'>
+<li>
+<a href='/RH/MarcacionAsistencia/Lista'><i class='fa-fw'>M</i><span class='hide-menu'>Marcación Personal</span></a></li>
+</ul>
+</li>
+<li>
+<a href='#' class='waves-effect'>
+<i class='mdi mdi-poll-box' style='margin-right:7px'></i> 
+<span class='hide-menu'>Reportes</span> <span class='fa arrow'></span></a>
+<ul class='nav nav-third-level collapse' aria-expanded='false'>
+<li>
+<a href='/Reporte/RH/MarcacionPersona'><i class='fa-fw'>M</i><span class='hide-menu'>Marcacion Persona</span></a></li>
+<li>
+<a href='/Reporte/RH/TardanzaHoraExtra'><i class='fa-fw'>T</i><span class='hide-menu'>Tardanza - Horas Extras</span></a></li>
+<li>
+<a href='/Reporte/RH/Tardanza'><i class='fa-fw'>T</i><span class='hide-menu'>Tardanza</span></a></li>
+<li>
+<a href='/Reporte/RH/MarcacionHextra'><i class='fa-fw'>H</i><span class='hide-menu'>Horas Extras</span></a></li>
+<li>
+<a href='/Reporte/RH/MarcacionPersona2'><i class='fa-fw'>M</i><span class='hide-menu'>Marcacion Personal 2</span></a></li>
+<li>
+<a href='/Reporte/RH/TardanzaHoraExtra2'><i class='fa-fw'>T</i><span class='hide-menu'>Tarzanza - Hora Extra 2</span></a></li>
+</ul>
+</li>
+<li>
+<a href='#' class='waves-effect'>
+<i class='ti-clipboard' style='margin-right:7px'></i> 
+<span class='hide-menu'>Maestros</span> <span class='fa arrow'></span></a>
+<ul class='nav nav-third-level collapse' aria-expanded='false'>
+<li>
+<a href='/RH/Empleado/Lista'><i class='fa-fw'>E</i><span class='hide-menu'>Empleado</span></a></li>
+<li>
+<a href='/RH/Cargo/Lista'><i class='fa-fw'>C</i><span class='hide-menu'>Cargo</span></a></li>
+<li>
+<a href='/RH/Feriado/Lista'><i class='fa-fw'>F</i><span class='hide-menu'>Feriados</span></a></li>
+<li>
+<a href='/RH/MotivoCese/Lista'><i class='fa-fw'>M</i><span class='hide-menu'>Motivo Cese</span></a></li>
+<li>
+<a href='/RH/Turno/Lista'><i class='fa-fw'>T</i><span class='hide-menu'>Turno</span></a></li>
+<li>
+<a href='/RH/PeriodoPlanilla/Lista'><i class='fa-fw'>P</i><span class='hide-menu'>Periodo Planilla</span></a></li>
+<li>
+<a href='/RH/RegPensionario/Lista'><i class='fa-fw'>R</i><span class='hide-menu'>Regimen Pensionario</span></a></li>
+<li>
+<a href='/RH/TipoIncidencia/Lista'><i class='fa-fw'>T</i><span class='hide-menu'>Tipo Incidencia</span></a></li>
+</ul>
+</li>
+<li>
+<a href='#' class='waves-effect'>
+<i class='icon-settings' style='margin-right:7px'></i> 
+<span class='hide-menu'>Configuración</span> <span class='fa arrow'></span></a>
+<ul class='nav nav-third-level collapse' aria-expanded='false'>
+<li>
+<a href='/RH/Concepto/Lista'><i class='fa-fw'>C</i><span class='hide-menu'>Concepto</span></a></li>
+<li>
+<a href='/RH/Parametro/Lista'><i class='fa-fw'>P</i><span class='hide-menu'>ParametrosConceptos</span></a></li>
+<li>
+<a href='/RH/Plantilla/Lista'><i class='fa-fw'>P</i><span class='hide-menu'>Plantillas</span></a></li>
+</ul>
+</li>
+<li>
+<a href='#' class='waves-effect'>
+<i class='icon-calculator' style='margin-right:7px'></i> 
+<span class='hide-menu'>Calculos</span> <span class='fa arrow'></span></a>
+<ul class='nav nav-third-level collapse' aria-expanded='false'>
+<li>
+<a href='/RH/PlanillaCDA/Lista'><i class='fa-fw'>P</i><span class='hide-menu'>Planilla Aux</span></a></li>
+<li>
+<a href='/RH/Cts/Lista'><i class='fa-fw'>C</i><span class='hide-menu'>CTS</span></a></li>
+<li>
+<a href='/RH/Gratificacion/Lista'><i class='fa-fw'>G</i><span class='hide-menu'>Gratificación</span></a></li>
+<li>
+<a href='/RH/Incidencia/Lista'><i class='fa-fw'>C</i><span class='hide-menu'>Control de Incidencias</span></a></li>
+<li>
+<a href='/RH/Liquidacion/Lista'><i class='fa-fw'>L</i><span class='hide-menu'>Liquidacion</span></a></li>
+<li>
+<a href='/RH/Planilla/Lista'><i class='fa-fw'>P</i><span class='hide-menu'>Planilla</span></a></li>
+<li>
+<a href='/RH/RentaQuinta/Lista'><i class='fa-fw'>R</i><span class='hide-menu'>Renta Quinta</span></a></li>
+<li>
+<a href='/RH/Vacaciones/Lista'><i class='fa-fw'>V</i><span class='hide-menu'>Vacaciones</span></a></li>
+</ul>
+</li>
+</ul>
+</li><li><a href='#' class='waves-effect'><i class=' fa-fw'></i><span class='hide-menu'>Activo Fijo</span> <span class='fa arrow'></span></a><ul class='nav nav-second-level collapse' aria-expanded='false'>
+<li>
+<a href='#' class='waves-effect'>
+<i class='' style='margin-right:7px'></i> 
+<span class='hide-menu'>Reporte</span> <span class='fa arrow'></span></a>
+<ul class='nav nav-third-level collapse' aria-expanded='false'>
+</ul>
+</li>
+<li>
+<a href='#' class='waves-effect'>
+<i class='' style='margin-right:7px'></i> 
+<span class='hide-menu'>Maestros</span> <span class='fa arrow'></span></a>
+<ul class='nav nav-third-level collapse' aria-expanded='false'>
+</ul>
+</li>
+<li>
+<a href='#' class='waves-effect'>
+<i class='' style='margin-right:7px'></i> 
+<span class='hide-menu'>Operaciones</span> <span class='fa arrow'></span></a>
+<ul class='nav nav-third-level collapse' aria-expanded='false'>
+<li>
+<a href='/ActivoFijo/ActivoFijo/Lista'><i class='fa-fw'>A</i><span class='hide-menu'>Activo Fijo</span></a></li>
+<li>
+<a href='/ActivoFijo/Adicion/Lista'><i class='fa-fw'>A</i><span class='hide-menu'>Adicion - Mejoras</span></a></li>
+<li>
+<a href='/ActivoFijo/Baja/Lista'><i class='fa-fw'>B</i><span class='hide-menu'>Baja</span></a></li>
+<li>
+<a href='/ActivoFijo/Depreciacion/Lista'><i class='fa-fw'>D</i><span class='hide-menu'>Depreciacion</span></a></li>
+</ul>
+</li>
+</ul>
+</li><li><a href='#' class='waves-effect'><i class='mdi mdi-clock fa-fw'></i><span class='hide-menu'>Marcación</span> <span class='fa arrow'></span></a><ul class='nav nav-second-level collapse' aria-expanded='false'>
+<li>
+<a href='/RH/MarcacionAsistencia/Marcacion'><i class='fa-fw'>M</i><span class='hide-menu'>Marcacion Asistencia</span></a></li>
+</ul>
+</li><li><a href='#' class='waves-effect'><i class='mdi mdi-basket fa-fw'></i><span class='hide-menu'>Gestión de Compras</span> <span class='fa arrow'></span></a><ul class='nav nav-second-level collapse' aria-expanded='false'>
+<li>
+<a href='/Compras/OrdenCompra/Lista'><i class='fa-fw'>C</i><span class='hide-menu'>Compras Nacionales</span></a></li>
+<li>
+<a href='/Compras/FormaPagoCompra/Lista'><i class='fa-fw'>F</i><span class='hide-menu'>Forma de pago</span></a></li>
+<li>
+<a href='/Compras/CondicionComercial/Lista'><i class='fa-fw'>C</i><span class='hide-menu'>Condición Comercial</span></a></li>
+<li>
+<a href='/Compras/OrdenServicio/Lista'><i class='fa-fw'>S</i><span class='hide-menu'>Servicio de Terceros</span></a></li>
+<li>
+<a href='/Compras/RequerimientoCompra/Lista'><i class='fa-fw'>R</i><span class='hide-menu'>Requerimiento de compras</span></a></li>
+<li>
+<a href='/Compras/OrdenImportacion/Lista'><i class='fa-fw'>C</i><span class='hide-menu'>Compras Internacionales</span></a></li>
+<li>
+<a href='#' class='waves-effect'>
+<i class='ti-bookmark-alt' style='margin-right:7px'></i> 
+<span class='hide-menu'>Comprobante Compra</span> <span class='fa arrow'></span></a>
+<ul class='nav nav-third-level collapse' aria-expanded='false'>
+<li>
+<a href='/Compras/CompCompra/Lista'><i class='fa-fw'>L</i><span class='hide-menu'>Lista Comprobantes</span></a></li>
+<li>
+<a href='/Compras/CompCompra/ListaDetraccion'><i class='fa-fw'>P</i><span class='hide-menu'>Pago Masivo de Detracciones</span></a></li>
+</ul>
+</li>
+</ul>
+</li><li><a href='#' class='waves-effect'><i class='mdi mdi-calculator fa-fw'></i><span class='hide-menu'>Contabilidad</span> <span class='fa arrow'></span></a><ul class='nav nav-second-level collapse' aria-expanded='false'>
+<li>
+<a href='#' class='waves-effect'>
+<i class=' ti-settings' style='margin-right:7px'></i> 
+<span class='hide-menu'>Operaciones</span> <span class='fa arrow'></span></a>
+<ul class='nav nav-third-level collapse' aria-expanded='false'>
+<li>
+<a href='/Contabilidad/GenerarArchivoTexto/ListaArchivo'><i class='fa-fw'>G</i><span class='hide-menu'>Generar Archivos Plano txt</span></a></li>
+<li>
+<a href='/Contabilidad/AsientoAutomatico/Almacen'><i class='fa-fw'>G</i><span class='hide-menu'>Generar Asiento Almacen</span></a></li>
+<li>
+<a href='/Contabilidad/AsientoAutomatico/GenerarAsiento'><i class='fa-fw'>G</i><span class='hide-menu'>Generar Asientos Automaticos</span></a></li>
+</ul>
+</li>
+<li>
+<a href='#' class='waves-effect'>
+<i class='ti-book' style='margin-right:7px'></i> 
+<span class='hide-menu'>Libros y Registros Contables</span> <span class='fa arrow'></span></a>
+<ul class='nav nav-third-level collapse' aria-expanded='false'>
+<li>
+<a href='/Contabilidad/LibroDiario/Lista'><i class='fa-fw'>A</i><span class='hide-menu'>Asiento Diario</span></a></li>
+</ul>
+</li>
+<li>
+<a href='#' class='waves-effect'>
+<i class='mdi mdi-chart-bar' style='margin-right:7px'></i> 
+<span class='hide-menu'>Reportes</span> <span class='fa arrow'></span></a>
+<ul class='nav nav-third-level collapse' aria-expanded='false'>
+<li>
+<a href='#' class='waves-effect'>
+<i class='' style='margin-right:7px'></i> 
+<span class='hide-menu'>Libros Contables</span> <span class='fa arrow'></span></a>
+<ul class='nav nav-third-level collapse' aria-expanded='false'>
+<li>
+<a href='/Reporte/Contabilidad/LibroMayor'><i class='fa-fw'>L</i><span class='hide-menu'>Libro Mayor</span></a></li>
+<li>
+<a href='/Reporte/Contabilidad/RegistroCompra'><i class='fa-fw'>R</i><span class='hide-menu'>Registro de Compra</span></a></li>
+<li>
+<a href='/Reporte/Contabilidad/RegistroVenta'><i class='fa-fw'>R</i><span class='hide-menu'>Registro de Venta</span></a></li>
+<li>
+<a href='/Reporte/Contabilidad/LibroDiario'><i class='fa-fw'>L</i><span class='hide-menu'>Libro DIario</span></a></li>
+</ul>
+</li>
+<li>
+<a href='#' class='waves-effect'>
+<i class='' style='margin-right:7px'></i> 
+<span class='hide-menu'>Estados Financieros</span> <span class='fa arrow'></span></a>
+<ul class='nav nav-third-level collapse' aria-expanded='false'>
+<li>
+<a href='/Reporte/Contabilidad/BalanceComprobacion01'><i class='fa-fw'>B</i><span class='hide-menu'>Balance de comprobacion sin cierre</span></a></li>
+</ul>
+</li>
+<li>
+<a href='#' class='waves-effect'>
+<i class='' style='margin-right:7px'></i> 
+<span class='hide-menu'>Varios</span> <span class='fa arrow'></span></a>
+<ul class='nav nav-third-level collapse' aria-expanded='false'>
+<li>
+<a href='/Contabilidad/Reporte/ListaAsientoSubDiario'><i class='fa-fw'>L</i><span class='hide-menu'>Lista de asientos por sub diario</span></a></li>
+<li>
+<a href='/Contabilidad/Reporte/SaldoCuentaPorCobrar'><i class='fa-fw'>S</i><span class='hide-menu'>Saldo cuentas por cobrar</span></a></li>
+<li>
+<a href='/Contabilidad/Reporte/SaldoCuentaPorPagar'><i class='fa-fw'>S</i><span class='hide-menu'>Saldo cuentas por pagar</span></a></li>
+<li>
+<a href='/Reporte/Contabilidad/LibroCajaBancosCtaCorriente'><i class='fa-fw'>C</i><span class='hide-menu'>Caja Banco cuenta corriente</span></a></li>
+<li>
+<a href='/Reporte/Contabilidad/MovimientoAnualCuentas'><i class='fa-fw'>M</i><span class='hide-menu'>Movimiento Anual de cuentas</span></a></li>
+<li>
+<a href='/Reporte/Contabilidad/SaldoCuentaPagarRH'><i class='fa-fw'>S</i><span class='hide-menu'>Saldo cuenta por pagar RRHH</span></a></li>
+<li>
+<a href='/Contabilidad/Reporte/LibroMayorAcumulado'><i class='fa-fw'>L</i><span class='hide-menu'>Libro Mayor acumulado</span></a></li>
+<li>
+<a href='/Reporte/Contabilidad/CajaBancoCheque'><i class='fa-fw'>C</i><span class='hide-menu'>Caja Banco Cheque</span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<a href='#' class='waves-effect'>
+<i class='ti-clipboard' style='margin-right:7px'></i> 
+<span class='hide-menu'>Maestros</span> <span class='fa arrow'></span></a>
+<ul class='nav nav-third-level collapse' aria-expanded='false'>
+<li>
+<a href='/Contabilidad/PlanCuenta/Lista'><i class='fa-fw'>L</i><span class='hide-menu'>Lista plan de cuentas</span></a></li>
+<li>
+<a href='/Contabilidad/PlanCuenta/MaestroLista'><i class='fa-fw'>P</i><span class='hide-menu'>Plan Cuentas</span></a></li>
+<li>
+<a href='/Contabilidad/PeriodoContable/Lista'><i class='fa-fw'>P</i><span class='hide-menu'>Periodo</span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            </div>
+        </div>
+        <!--End Left Sidebar Menu-->
+        <!--Page Content-->
+        <div id="page-wrapper" class="page-wrapper-main">
+            <div class="container-fluid">
+                
+
+
+<div class="row bg-title">
+    <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
+        <h4 class="page-title">Maestro de Ventas</h4>
+    </div>
+    <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12">
+        <ol class="breadcrumb">
+            <li><a Area="" href="/Ventas/CompVenta/main?Length=6">Dashboard</a></li>
+            <li><a href="#">Gestión de Ventas</a></li>
+            <li class="active">Lista Comprobante de Ventas</li>
+        </ol>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <div class="white-box">
+            <div class="row m-b-15">
+                <div class="col-sm-6">
+                    <div class="input-group pull-right">
+                        <div class="input-group-btn">
+                            <button type="button" class="btn waves-effect waves-light btn-default">
+                                <i class="fa fa-search"></i>
+                            </button>
+                        </div>
+                        <input type="text" placeholder="Buscar" class="form-control" />
+                        <div class="input-group-btn">
+                            <button type="button" aria-expanded="true" data-toggle="dropdown" class="btn waves-effect waves-light btn-default dropdown-toggle">
+                                <i class="fa fa-sort-down"></i>
+                            </button>
+                            <div class="dropdown-menu dropdown-menu-right animated flipInY filter-main">
+                                <div class="filter-main-content">
+                                    <div class="m-b-10">
+                                        <label class="control-label text-muted">
+                                            <i class="mdi mdi-filter font-medium"></i> Filtro
+                                        </label>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-xs-12 col-sm-6">
+                                            <div class="filter-main-row">
+                                                <label for="FechaInicio">Fecha Inicio</label>
+                                                <div class="input-group" id="FechaInicioLista">
+                                                    <input autocomplete="off" class="form-control calendar-form" id="FechaInicio" name="FechaInicio" placeholder="dd/mm/yyyy" type="text" value="05/06/2019" />
+                                                    <div class="input-group-addon">
+                                                        <i class="icon-calender"></i>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-xs-12 col-sm-6">
+                                            <div class="filter-main-row">
+                                                <label for="FechaFin">Fecha Fin</label>
+                                                <div class="input-group" id="FechaFinLista">
+                                                    <input autocomplete="off" class="form-control calendar-form" id="FechaFin" name="FechaFin" placeholder="dd/mm/yyyy" type="text" value="05/07/2019" />
+                                                    <div class="input-group-addon">
+                                                        <i class="icon-calender"></i>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-xs-12 col-sm-6">
+                                            <div class="filter-main-row">
+                                                <label for="NroDoc">Nro Doc</label>
+                                                <input autocomplete="off" class="form-control" id="NroDoc" name="NroDoc" placeholder="numero documento" type="text" value="" />
+                                            </div>
+                                        </div>
+                                        <div class="col-xs-12 col-sm-6">
+                                            <div class="filter-main-row">
+                                                <label for="TipoDoc">Tipo Doc.</label>
+                                                <select class="form-control" id="TipoDoc" name="TipoDoc">
+                                                    <option value="">---Todos---</option>
+                                                    <option value="01">Factura</option>
+                                                    <option value="03">Boleta</option>
+                                                    <option value="07">Nota Credito</option>
+                                                    <option value="08">Nota Debito</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-xs-12 col-sm-6">
+                                            <div class="filter-main-row">
+                                                <label for="RucCli">Ruc</label>
+                                                <input autocomplete="off" class="form-control" id="RucCli" name="RucCli" placeholder="ruc" type="text" value="" />
+                                            </div>
+                                        </div>
+                                        <div class="col-xs-12 col-sm-6">
+                                            <div class="filter-main-row">
+                                                <label for="Cliente">Cliente</label>
+                                                <input autocomplete="off" class="form-control" id="Cliente" name="Cliente" placeholder="cliente" type="text" value="" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="m-b-10">
+                                        <div class="text-right">
+                                            <button type="button" onclick="BuscarLista()" class="btn btn-info waves-effect waves-light"><i class="fa fa-search"></i> Buscar</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="col-sm-3">
+                        <div class="btn-group dropdown">
+                            <button type="button" aria-expanded="false" data-toggle="dropdown" class="btn btn-info waves-effect waves-light">
+                                Factura <span class="mdi mdi-arrow-down-drop-circle"></span>
+                            </button>
+                            <ul role="menu" class="dropdown-menu animated flipInY" style="width:400px">
+                                <li>
+                                    <ul class="list-unstyled col-sm-6" role="menu">
+                                        <li>
+                                            <a class="btn btn-outline btn-default b-0" href="#" id="FacturaRegularizarNuevo">
+                                                <i class="mdi mdi-square-inc-cash"></i> Factura a regularizar
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a class="btn btn-outline btn-default b-0" href="#" id="NuevoCompVenta">
+                                                <i class="mdi mdi-square-inc-cash"></i> Venta Directa
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a class="btn btn-outline btn-default b-0" href="#" id="FacturaAnticipo" data-Url="/Ventas/Factura/Anticipo">
+                                                <i class="mdi mdi-note"></i> Anticipo
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a class="btn btn-outline btn-default b-0" href="#" id="FacturaCancelacion" data-Url="/Ventas/Factura/Cancelacion">
+                                                <i class="mdi mdi-note"></i> Cancelacion
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a class="btn btn-outline btn-default b-0" href="#" id="FacturaAcreedor" data-Url="/Ventas/Factura/Acreedor">
+                                                <i class="mdi mdi-note"></i> Acreedor
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a class="btn btn-outline btn-default b-0" href="#" id="FacturaReserva" data-Url="/Ventas/Factura/Reserva">
+                                                <i class="mdi mdi-note"></i> Reserva
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a class="btn btn-outline btn-default b-0" href="#" id="FacturaTituloGratuito" data-Url="/Ventas/Factura/TituloGratuito">
+                                                <i class="mdi mdi-note"></i> Titulo Gratuito
+                                            </a>
+                                        </li>
+                                    </ul>
+                                    <ul class="list-unstyled col-sm-6">
+                                        <li>
+                                            <a class="btn btn-outline btn-default b-0" href="#" id="FacturaDirectaNoStock" data-Url="/Ventas/Factura/VentaDirectaNoStock">
+                                                <i class="mdi mdi-square-inc-cash"></i> Venta Directa Sin Stock
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a class="btn btn-outline btn-default b-0" href="#" id="FacturaVentaDirectaSinGuia" data-Url="/Ventas/Factura/VentaDirectaSinGuia">
+                                                <i class="mdi mdi-square-inc-cash"></i> Venta Directa sin guia
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a class="btn btn-outline btn-default b-0" href="#" id="FacturaCancelacionSinGuia" data-Url="/Ventas/Factura/CancelacionSinGuia">
+                                                <i class="mdi mdi-square-inc-cash"></i> Cancelacion sin guia
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a class="btn btn-outline btn-default b-0" href="#" id="FacturaDeudorSinGuia" data-Url="/Ventas/Factura/DeudorSinGuia">
+                                                <i class="mdi mdi-note"></i> Acreedor sin guia
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-sm-3">
+                        <div class="btn-group dropdown">
+                            <button type="button" aria-expanded="false" data-toggle="dropdown" class="btn btn-info waves-effect waves-light">
+                                Boleta <span class="mdi mdi-arrow-down-drop-circle"></span>
+                            </button>
+                            <ul role="menu" class="dropdown-menu animated flipInY" style="width:400px">
+                                <li>
+                                    <ul class="list-unstyled col-sm-6" role="menu">
+                                        <li>
+                                            <a class="btn btn-outline btn-default b-0" href="#" id="BoletaVentaDirecta" data-Url="/Ventas/Boleta/VentaDirecta">
+                                                <i class="mdi mdi-square-inc-cash"></i> Venta Directa
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a class="btn btn-outline btn-default b-0" href="#" id="BoletaRegularizarNuevo">
+                                                <i class="mdi mdi-square-inc-cash"></i> Boleta a regularizar
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a class="btn btn-outline btn-default b-0" href="#" id="BoletaAnticipo" data-Url="/Ventas/Boleta/Anticipo">
+                                                <i class="mdi mdi-square-inc-cash"></i> Anticipo
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a class="btn btn-outline btn-default b-0" href="#" id="BoletaCancelacion" data-Url="/Ventas/Boleta/Cancelacion">
+                                                <i class="mdi mdi-note"></i> Cancelacion
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a class="btn btn-outline btn-default b-0" href="#" id="BoletaAcreedor" data-Url="/Ventas/Boleta/Acreedor">
+                                                <i class="mdi mdi-note"></i> Acreedor
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a class="btn btn-outline btn-default b-0" href="#" id="BoletaTituloGratuito" data-Url="/Ventas/Boleta/TituloGratuito">
+                                                <i class="mdi mdi-note"></i> Titulo Gratuito
+                                            </a>
+                                        </li>
+                                    </ul>
+                                    <ul class="list-unstyled col-sm-6">
+                                        <li>
+                                            <a class="btn btn-outline btn-default b-0" href="#" id="BoletaDirectaNoStock" data-Url="/Ventas/Boleta/VentaDirectaNoStock">
+                                                <i class="mdi mdi-square-inc-cash"></i> Boleta Sin Stock
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a class="btn btn-outline btn-default b-0" href="#" id="BoletaVentaDirectaSinGuia" data-Url="/Ventas/Boleta/VentaDirectaSinGuia">
+                                                <i class="mdi mdi-square-inc-cash"></i> Venta Directa sin guia
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a class="btn btn-outline btn-default b-0" href="#" id="BoletaCancelacionSinGuia" data-Url="/Ventas/Boleta/CancelacionSinGuia">
+                                                <i class="mdi mdi-square-inc-cash"></i> Cancelación sin guia
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a class="btn btn-outline btn-default b-0" href="#" id="BoletaAcreedorSinGuia" data-Url="/Ventas/Boleta/DeudorSinGuia">
+                                                <i class="mdi mdi-note"></i> Acreedor sin guia
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-sm-3">
+                        <button type="button" class="btn btn-outline btn-info waves-effect waves-light" data-url="/Ventas/NotaDebito/Nuevo" id="NotaDebito">
+                            <i class="mdi mdi-clipboard-check"></i> Nota Débito
+                        </button>
+                    </div>
+                    <div class="col-sm-3">
+                        <button type="button" class="btn btn-outline btn-info waves-effect waves-light" data-url="/Ventas/NotaCredito/Nuevo" id="NotaCredito">
+                            <i class="mdi mdi-clipboard-check"></i> Nota Crédito
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="table-responsive">
+                        <table class="table table-condensed table-striped table-hover m-t-0 m-b-0 table-main" id="ListaVenta">
+                            <thead>
+                                <tr>
+                                    <th style="text-align:center">Ver</th>
+                                    <th style="text-align:center">Fecha</th>
+                                    <th style="text-align:center">TD</th>
+                                    <th style="text-align:center">Nro. Doc.</th>
+                                    <th style="text-align:center">Ruc / Dni</th>
+                                    <th style="text-align:center">Razón Social</th>
+                                    <th style="text-align:center">Moneda</th>
+                                    <th style="text-align:center">Importe</th>
+                                    <th style="text-align:center">Estado</th>
+                                </tr>
+                            </thead>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="cube_fast/js/customfunctions/formulario.js"></script>
+
+            </div>
+        </div>
+        <!-- End Page Content -->
+        <!-- Page End -->
+        <!-- ======== -->
+        <!-- Footer -->
+        <footer class="footer text-center p-10">  &copy; Todos los derechos reservado Future Imagick </footer>
+    </div>
+    <!-- End Wrapper -->
+    <!-- ============= -->
+    <!--Alerta -->
+    <div class="myadmin-alert myadmin-alert-icon myadmin-alert-click alert-danger myadmin-alert-top alerttop">
+        <i class="mdi mdi-alert-box"></i><b>Error!</b> <small style="font-size:100%"></small> reporte al administrador. <a href="#" class="closed">&times;</a>
+    </div>
+    <!--slimscroll JavaScript -->
+    <script src="cube_Fast/js/jquery.slimscroll.js"></script>
+    <!--Wave Effects -->
+    <script src="cube_Fast/js/waves.js"></script>
+    <!-- Custom Theme JavaScript -->
+    <script src="cube_Fast/js/custom.min.js"></script>
+    <script src="cube_Fast/js/custom_cubefast.js"></script>
+</body>
+</html>

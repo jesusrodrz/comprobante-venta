@@ -1,0 +1,202 @@
+@model CF.Entity.TE_REGISTRO_BANCO_DTO
+@using (Html.BeginForm("GrabarIngresos", "RegistroBanco", FormMethod.Post, new { id = "FrmBancoIngresos" }))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+<div class="form-body">
+    <div class="row">
+        <div class="col-md-4">
+            <div class="form-group">
+                @Html.LabelFor(m => m.id_banco, "Banco", new { @class = "control-label" })
+                @Html.DropDownList("id_banco", null, new { @class = "form-control" })
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="form-group">
+                @Html.LabelFor(m => m.id_banco_cuenta, "Banco Cuenta", new { @class = "control-label" })
+                @Html.DropDownList("id_banco_cuenta", null, new { @class = "form-control" })
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="form-group">
+                @Html.LabelFor(m => m.id_moneda, "Moneda", new { @class = "control-label" })
+                <input type="text" id="MonedaDes" name="MonedaDes" class="form-control" readonly="true" />
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-4">
+            <div class="form-group">
+                @Html.LabelFor(m => m.nro_operacion, "Nro Operación", new { @class = "control-label" })
+                @Html.TextBoxFor(m => m.nro_operacion, new { @class = "form-control" })
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="form-group">
+                <label for="fecha_tipo_cambio" class="control-label">Fecha Operación</label>
+                <div class="input-group" id="FechaOperacion">
+                    @Html.TextBoxFor(m => m.fecha_operacion, "{0:dd/MM/yyyy}", new { @class = "form-control" })
+                    <div class="input-group-addon">
+                        <i class="icon-calender"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="form-group">
+                <label for="TipoCambio" class="control-label">Tipo Cambio</label>
+                @Html.TextBoxFor(m => m.TipoCambio, "{0:N3}", new { @class = "form-control", @readonly = "readonly" })
+                <div class="help-block with-errors"></div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="form-group">
+                @Html.LabelFor(m => m.Ruc, "Ruc / Dni", new { @class = "control-label" })
+                <div class="input-group">
+                    @Html.TextBoxFor(m => m.Ruc, new { @class = "form-control", @autocomplete = "off" })
+                    <span class="input-group-btn">
+                        <button type="button" class="btn waves-effect waves-light btn-info" onclick="return BuscarPersona()"> <i class="fa fa-search"></i></button>
+                    </span>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-group">
+                @Html.LabelFor(m => m.RazonSocial, "Razón Social", new { @class = "control-label" })
+                <div class="input-group">
+                    @Html.TextBoxFor(m => m.RazonSocial, new { @class = "form-control", @readonly = "readonly" })
+                    <span class="input-group-btn">
+                        <button type="button" class="btn waves-effect waves-light btn-info" id="btnBuscarPersonaIngreso"> <i class="fa fa-search"></i></button>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-8">
+            <div class="form-group">
+                @Html.LabelFor(m => m.glosa, "Comentario", new { @class = "control-label" })
+                @Html.TextBoxFor(m => m.glosa, new { @class = "form-control" })
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <div class="form-group">
+                @Html.LabelFor(m => m.importe_mn, "Importe", new { @class = "control-label" })
+                @Html.TextBoxFor(m => m.importe_mn, new { @class = "form-control CambiarMontoPago" })
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <input type="hidden" id="id_persona" name="id_persona" />
+        @Html.HiddenFor(m => m.id_tipo_cambio)
+        <input type="hidden" id="id_moneda" name="id_moneda" />
+        @Html.HiddenFor(m => m.id_medio_pago)
+        @Html.HiddenFor(m => m.id_sub_diario)
+        @Html.Hidden("FilaDetalle")
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <ul class="nav customtab2 nav-tabs fix-header" role="tablist">
+                <li role="presentation" class="active"><a href="#ComprobantesCancelar" aria-controls="Agregar Comprobante" role="tab" data-toggle="tab" aria-expanded="true"><span class="visible-xs"><i class="ti-menu-alt"></i></span><span class="hidden-xs">Comprobantes a Cancelar</span></a></li>
+                <li role="presentation" class=""><a href="#Otros" aria-controls="Otros" role="tab" data-toggle="tab" aria-expanded="false"><span class="visible-xs"><i class="ti-money"></i></span> <span class="hidden-xs">Otros</span></a></li>
+            </ul>
+            <div class="tab-content m-t-15">
+                <div role="tabpanel" class="tab-pane fade active in" id="ComprobantesCancelar">
+                    <div class="form-inline m-b-10">
+                        <button type="button" class="btn btn-info btn-rounded" id="ComprobantesPendientes" data-ref="@Url.Action("AgregarCompVentaPendiente", "CompVenta", new { Area = "Ventas" })"><i class="fa fa-plus"></i> Agregar</button>
+                    </div>
+                    <div class="table-responsive">
+                        <table class="table table-condensed table-striped table-hover m-t-0 m-b-0 table-main" id="DetalleCompCompraIngresos">
+                            <thead>
+                                <tr>
+                                    <th>Acción</th>
+                                    <th>Item</th>
+                                    <th>F. Registro</th>
+                                    <th>Socio Negocio</th>
+                                    <th>Nro. Doc</th>
+                                    <th>Moneda</th>
+                                    <th>M. Deuda</th>
+                                    <th>M. Pago</th>
+                                    <th>M. Saldo</th>
+                                    <th>Saldo MN</th>
+                                    <th>Saldo ME</th>
+                                </tr>
+                            </thead>
+                            <tbody></tbody>
+                            <tfoot>
+                                <tr>
+                                    <td colspan="10"><label id="DetalleTotalFilas">Total Registros : 0</label></td>
+                                </tr>
+                            </tfoot>
+                        </table>
+                    </div>
+                </div>
+                <div role="tabpanel" class="tab-pane fade" id="Otros">
+                    <div class="form-inline m-b-10">
+                        <button type="button" class="btn btn-info btn-rounded" id="AgregarAsientoDetalle"><i class="fa fa-plus"></i> Agregar</button>
+                    </div>
+                    <div class="table-responsive">
+                        <table class="table table-condensed table-striped table-hover m-t-0 m-b-0 table-main" id="DetalleAsientoIngresoOtros">
+                            <thead>
+                                <tr>
+                                    <th>Acción</th>
+                                    <th>Item</th>
+                                    <th>Cuenta</th>
+                                    <th>Descripción</th>
+                                    <th>D/H</th>
+                                    <th>Monto</th>
+                                    <th>RUC</th>
+                                    <th>Socio Negocio</th>
+                                    <th>Tipo Doc</th>
+                                    <th>Serie</th>
+                                    <th>Nro. Doc</th>
+                                    <th>Fecha Emisión</th>
+                                    <th>Fecha Vcto</th>
+                                    <th>Glosa</th>
+                                </tr>
+                            </thead>
+                            <tbody></tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            @Html.Label("", "Total por pagar", new { @class = "control-label col-md-2" })
+            <div class="col-md-3">
+                @Html.TextBox("TotalPorPagar", null, new { @class = "form-control", @readonly = "readonly" })
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            @Html.Label("", "Monto Diferencia", new { @class = "control-label col-md-2" })
+            <div class="col-md-3">
+                @Html.TextBox("MontoDiferencia", null, new { @class = "form-control", @readonly = "readonly" })
+            </div>
+        </div>
+    </div>
+</div>
+    <div class="form-actions m-t-10 m-b-10">
+        <button type="submit" class="btn btn-success m-r-10"><i class="fa fa-check"></i> Grabar</button>
+        <button type="button" class="btn btn-default waves-effect" onclick="pBancoIngresos.close()"><i class="fa fa-ban"></i> Cerrar</button>
+    </div>
+}
+<style>
+    table.dataTable tbody th,
+    table.dataTable tbody td {
+        white-space: nowrap;
+    }
+</style>
+<script>
+    var urlCuentaBanco = '@Url.Action("CargarCuentaBanco", "RegistroBanco", new { Area = "Finanzas" })';
+    var urlCargarMoneda = '@Url.Action("CargarMoneda", "RegistroBanco", new { Area = "Finanzas" })';
+    var urlBuscarPersona = '@Url.Action("BuscarPersona", "RegistroBanco", new { Area = "Finanzas" })';
+    var sDataDetalleIngresos;
+</script>
+
+@Scripts.Render("~/Cube_Fast/js/customfunctions/Finanzas/RegistroBanco/BancoIngresos.js?" + @DateTime.Now.Ticks)
