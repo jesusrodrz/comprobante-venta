@@ -1,8 +1,5 @@
-@model CF.Entity.TE_REGISTRO_BANCO_DTO
 @using (Html.BeginForm("GrabarIngresos", "RegistroBanco", FormMethod.Post, new { id = "FrmBancoIngresos" }))
 {
-    @Html.AntiForgeryToken()
-    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
 <div class="form-body">
     <div class="row">
         <div class="col-md-4">
