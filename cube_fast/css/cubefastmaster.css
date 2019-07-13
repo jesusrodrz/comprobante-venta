@@ -1,38 +1,109 @@
-.page-wrapper-main { padding: 0 0 20px !important; }
+.page-wrapper-main {
+  padding: 0 0 20px !important;
+}
 
-@media screen and (min-width: 320px) and (max-width: 767px) { .page-wrapper-main { padding: 0 0 40px !important; } }
+@media screen and (min-width: 320px) and (max-width: 767px) {
+  .page-wrapper-main {
+    padding: 0 0 40px !important;
+  }
+}
 
-.no-scroll { overflow: hidden; }
+.no-scroll {
+  overflow: hidden;
+}
 
-.m-l-0 { margin-left: 0 !important; }
+.m-l-0 {
+  margin-left: 0 !important;
+}
 
-.box-main { min-height: 450px; }
+.box-main {
+  min-height: 450px;
+}
 
-@media screen and (min-width: 320px) and (max-width: 479px) { .box-main { min-height: 540px; } }
+@media screen and (min-width: 320px) and (max-width: 479px) {
+  .box-main {
+    min-height: 540px;
+  }
+}
 
-.filter-main { min-width: 500px; padding: 1em; }
+/* .filter-main { min-width: 500px; padding: 1em; } */
+.filter-main {
+  padding: 1em;
+}
 
-@media screen and (min-width: 320px) and (max-width: 767px) { .filter-main { min-width: 260px; } }
+@media screen and (min-width: 320px) and (max-width: 767px) {
+  .filter-main {
+    min-width: 260px;
+  }
+}
 
-@media only screen and (min-width: 320px) and (max-width: 767px) and (orientation: landscape) { .filter-main { min-width: 540px !important; } }
+/* @media only screen and (min-width: 320px) and (max-width: 767px) and (orientation: landscape) { .filter-main { min-width: 540px !important; } } */
 
-.filter-main-content { display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-orient: vertical; -webkit-box-direction: normal; -ms-flex-direction: column; flex-direction: column; }
+.filter-main-content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
 
-.filter-main-row { margin-bottom: 10px; display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-orient: vertical; -webkit-box-direction: normal; -ms-flex-direction: column; flex-direction: column; }
+.filter-main-row {
+  margin-bottom: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+.dropdown-btn {
+  position: static;
+}
 
-.table-main { /*  min-width: 100% !important;*/ word-wrap: break-word; /*  @include start-end(320px,tablet){ table-layout: auto; } */ }
+.table-main {
+  /*  min-width: 100% !important;*/
+  word-wrap: break-word; /*  @include start-end(320px,tablet){ table-layout: auto; } */
+}
 
-.table-main .dataTable { white-space: nowrap !important; }
+.table-main .dataTable {
+  white-space: nowrap !important;
+}
 
-.dataTables_scrollBody thead tr { visibility: collapse; border-top: none; }
+.dataTables_scrollBody thead tr {
+  visibility: collapse;
+  border-top: none;
+}
 
-.dataTables_scrollHead,.dataTables_scrollBody,.dataTables_scrollFoot,.dataTables_scrollHeadInner,.dataTables_scrollFootInner { width: 100% !important; }
+.dataTables_scrollHead,
+.dataTables_scrollBody,
+.dataTables_scrollFoot,
+.dataTables_scrollHeadInner,
+.dataTables_scrollFootInner {
+  width: 100% !important;
+}
 
-.selected-row > td { font-weight: 400 !important; color: #2f323e !important; }
+.selected-row > td {
+  font-weight: 400 !important;
+  color: #2f323e !important;
+}
 
-.checkbox label::before { border: 1px solid rgba(120, 130, 140, 0.35) !important; }
-.radio label::before { border: 1px solid rgba(120, 130, 140, 0.35) !important; }
+.checkbox label::before {
+  border: 1px solid rgba(120, 130, 140, 0.35) !important;
+}
+.radio label::before {
+  border: 1px solid rgba(120, 130, 140, 0.35) !important;
+}
 
-.embed-responsive iframe { height: 100% !important; width: 100% !important; padding-top: 10px !important; padding-left: 10px !important; }
+.embed-responsive iframe {
+  height: 100% !important;
+  width: 100% !important;
+  padding-top: 10px !important;
+  padding-left: 10px !important;
+}
 
-.bg-iframe { background-color: #fff !important; }
+.bg-iframe {
+  background-color: #fff !important;
+}

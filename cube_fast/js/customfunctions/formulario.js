@@ -12,7 +12,7 @@ $(function() {
     columnDefs: [
       {
         className: 'text-nowrap',
-        targets: [0]
+        targets: [-1]
       }
     ],
     columns: [
@@ -66,9 +66,9 @@ $(function() {
         }
       }
     ],
-    sScrollY: 350,
-    sScrollX: '110%',
-    bScrollCollapse: true,
+    // sScrollY: 350,
+    // sScrollX: '110%',
+    // bScrollCollapse: true,
     pageLength: 20
   })
 
