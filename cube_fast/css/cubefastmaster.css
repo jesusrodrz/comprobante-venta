@@ -32,9 +32,9 @@
 }
 
 @media screen and (min-width: 320px) and (max-width: 767px) {
-  .filter-main {
+  /* .filter-main {
     min-width: 260px;
-  }
+  } */
 }
 
 /* @media only screen and (min-width: 320px) and (max-width: 767px) and (orientation: landscape) { .filter-main { min-width: 540px !important; } } */
@@ -61,6 +61,10 @@
 }
 .dropdown-btn {
   position: static;
+}
+.table-responsive {
+  max-height: calc(100vh - 315px);
+  overflow-y: scroll !important;
 }
 
 .table-main {
