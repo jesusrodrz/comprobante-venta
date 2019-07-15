@@ -66,10 +66,39 @@ $(function() {
         }
       }
     ],
-    // sScrollY: 350,
+    sScrollY: window.innerHeight - 425,
     // sScrollX: '110%',
-    // bScrollCollapse: true,
-    pageLength: 20
+    bScrollCollapse: true,
+    pageLength: 15
+  })
+
+  $('#ListaRegBanco').on('draw.dt', function() {
+    const tableTds = [
+      ...document
+        .querySelector('#ListaRegBanco tbody tr')
+        .querySelectorAll('td')
+    ]
+    const tableThs = [
+      ...document.querySelectorAll('.dataTables_scrollHeadInner th')
+    ]
+    const tbody = document.querySelector(
+      '#ListaRegBanco_wrapper .dataTables_scrollBody'
+    )
+    const thead = document.querySelector(
+      '#ListaRegBanco_wrapper .dataTables_scrollHead'
+    )
+    const width = Math.max(thead.offsetWidth, tbody.offsetWidth)
+
+    thead.style.width = width
+    tbody.style.width = width
+
+    tableTds.forEach((element, index) => {
+      const width = Math.max(element.offsetWidth, tableThs[index].offsetWidth)
+      tableThs[index].style.width = width
+      element.style.width = width
+
+      console.log(width, tableThs[index].offsetWidth, element.offsetWidth)
+    })
   })
 
   $('#NotaCredito').click(function(e) {

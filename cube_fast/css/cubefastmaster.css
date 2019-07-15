@@ -63,8 +63,8 @@
   position: static;
 }
 .table-responsive {
-  max-height: calc(100vh - 315px);
-  overflow-y: scroll !important;
+  /* max-height: calc(100vh - 315px); */
+  /* overflow-y: scroll !important; */
 }
 
 .table-main {
@@ -86,7 +86,7 @@
 .dataTables_scrollFoot,
 .dataTables_scrollHeadInner,
 .dataTables_scrollFootInner {
-  width: 100% !important;
+  /* width: 100% !important; */
 }
 
 .selected-row > td {
