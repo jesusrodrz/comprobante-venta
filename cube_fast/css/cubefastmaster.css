@@ -62,6 +62,9 @@
 .dropdown-btn {
   position: static;
 }
+.dropdown-menu.filter-main{
+  width: 100%
+}
 .table-responsive {
   /* max-height: calc(100vh - 315px); */
   /* overflow-y: scroll !important; */
