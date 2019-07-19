@@ -160,9 +160,14 @@ function MostrarErrores(Msj) {
  * @returns {string} Panel.
  */
 function CargarPanel(TitlePanel,ThemePanel,Url,Width = 850,Height = 600) {
+    const offset = 50
+    const value = ((window.innerHeight - window.innerHeight * 0.9 ) / 2 )
+    const height = Math.min(Height, window.innerHeight * 0.9)
+    console.log(value, height)
+
     var Panel = $.jsPanel({
         closeOnEscape: true,
-        position: 'center-top 0 60',
+        position: `center-top 0 ${value}`,
         show: 'animated fadeInDownBig',
         headerTitle: TitlePanel,
         theme: ThemePanel,
@@ -173,7 +178,7 @@ function CargarPanel(TitlePanel,ThemePanel,Url,Width = 850,Height = 600) {
         container: document.body,
         contentSize: {
             width: function () { return Math.min(Width, window.innerWidth * 0.9); },
-            height: function () { return Math.min(Height, window.innerHeight * 0.9); }
+            height: function () { return (Math.min(Height, window.innerHeight * 0.9) - offset); }
         },
         content: '<div class="text-center m-t-10"><i class="fa fa-circle-o-notch fa-spin fa-4x fa-fw"></i><span class="sr-only">Cargando...</span></div>',
         callback: function (panel) {

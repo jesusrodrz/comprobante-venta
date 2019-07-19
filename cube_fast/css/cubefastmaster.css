@@ -62,8 +62,8 @@
 .dropdown-btn {
   position: static;
 }
-.dropdown-menu.filter-main{
-  width: 100%
+.dropdown-menu.filter-main {
+  width: 100%;
 }
 .table-responsive {
   /* max-height: calc(100vh - 315px); */
@@ -84,12 +84,8 @@
   border-top: none;
 }
 
-.dataTables_scrollHead,
-.dataTables_scrollBody,
-.dataTables_scrollFoot,
-.dataTables_scrollHeadInner,
-.dataTables_scrollFootInner {
-  /* width: 100% !important; */
+.dataTables_scroll {
+  overflow-x: auto;
 }
 
 .selected-row > td {
