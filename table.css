@@ -1,0 +1,47 @@
+.modal-table {
+  background-color: rgba(0, 0, 0, 0.795);
+  height: 100vh;
+  width: 100vw;
+  position: relative;
+  overflow: hidden;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  z-index: 1000000000;
+  top: 0;
+  display: none;
+}
+.modal-table.active {
+  display: block;
+}
+.table-responsive {
+  position: relative;
+}
+.table-container {
+  background-color: white;
+  border-radius: 12px;
+  transition: all linear 1s;
+  overflow: scroll;
+  height: calc(100vh - 30px);
+  width: calc(100vw - 30px);
+  transform-origin: top left;
+  position: relative;
+  top: 15px;
+  left: 15px;
+  overflow: hidden;
+  transform: translateX(calc(100vw - 30px)) rotate(90deg);
+  width: calc(100vh - 30px);
+  height: calc(100vw - 30px);
+}
+.table-btn-expand {
+  position: absolute;
+  bottom: 0.5em;
+  left: 10px;
+  z-index: 100000;
+  display: none;
+}
+@media screen and (max-width: 767px) {
+  .table-btn-expand {
+    display: block;
+  }
+}

@@ -67,10 +67,26 @@ $(function() {
       }
     ],
     sScrollY: window.innerHeight - 425,
-    // sScrollX: '110%',
     bScrollCollapse: true,
     pageLength: 15
   })
+  function tabla(indentifier) {
+    $('#' + indentifier).on('draw.dt', function() {
+      const tableTds = [
+        ...document
+          .querySelector('#' + indentifier + ' tbody tr')
+          .querySelectorAll('td')
+      ]
+      const tableThs = [
+        ...document.querySelectorAll('.dataTables_scrollHeadInner th')
+      ]
+      const tbody = document.querySelector(
+        '#' + indentifier + '_wrapper .dataTables_scrollBody'
+      )
+      const thead = document.querySelector(
+        '#' + indentifier + '_wrapper .dataTables_scrollHead'
+      )
+      const width = Math.max(thead.offsetWidth, tbody.offsetWidth)
 
   redimesionarTabla('ListaRegBanco');
 
