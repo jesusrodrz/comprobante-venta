@@ -1,38 +1,46 @@
-@using (Html.BeginForm("GrabarIngresos", "RegistroBanco", FormMethod.Post, new { id = "FrmBancoIngresos" }))
-{
+<form id="FrmBancoIngresos" method="POST">
 <div class="form-body">
     <div class="row">
         <div class="col-md-4">
             <div class="form-group">
-                @Html.LabelFor(m => m.id_banco, "Banco", new { @class = "control-label" })
-                @Html.DropDownList("id_banco", null, new { @class = "form-control" })
+                <label class="control-label" for="id_banco">Banco</label>
+                <select class="form-control" id="id_banco" name="id_banco" data-bv-field="id_banco">
+                    <option value="">---Seleccionar--</option>
+                    <option value="1">Credito</option>
+                    <option value="2">Santander</option>
+                    <option value="3">BCP</option>
+                    <option value="4">Scotiabank</option>
+                    <option value="5">Banco Peru  RM</option>
+                </select>
             </div>
         </div>
         <div class="col-md-4">
             <div class="form-group">
-                @Html.LabelFor(m => m.id_banco_cuenta, "Banco Cuenta", new { @class = "control-label" })
-                @Html.DropDownList("id_banco_cuenta", null, new { @class = "form-control" })
+                <label class="control-label" for="id_banco_cuenta">Banco Cuenta</label>
+                <select class="form-control" id="id_banco_cuenta" name="id_banco_cuenta">
+                    <option value="">---Seleccionar--</option>
+                </select>
             </div>
         </div>
         <div class="col-md-4">
             <div class="form-group">
-                @Html.LabelFor(m => m.id_moneda, "Moneda", new { @class = "control-label" })
-                <input type="text" id="MonedaDes" name="MonedaDes" class="form-control" readonly="true" />
+                <label class="control-label" for="id_moneda">Moneda</label>
+                <input type="text" id="MonedaDes" name="MonedaDes" class="form-control" readonly="true">
             </div>
         </div>
     </div>
     <div class="row">
         <div class="col-sm-4">
             <div class="form-group">
-                @Html.LabelFor(m => m.nro_operacion, "Nro Operación", new { @class = "control-label" })
-                @Html.TextBoxFor(m => m.nro_operacion, new { @class = "form-control" })
+                <label class="control-label" for="nro_operacion">Nro Operación</label>
+                <input class="form-control" id="nro_operacion" name="nro_operacion" type="text" value="" data-bv-field="nro_operacion">
             </div>
         </div>
         <div class="col-md-4">
             <div class="form-group">
                 <label for="fecha_tipo_cambio" class="control-label">Fecha Operación</label>
                 <div class="input-group" id="FechaOperacion">
-                    @Html.TextBoxFor(m => m.fecha_operacion, "{0:dd/MM/yyyy}", new { @class = "form-control" })
+                    <input class="form-control" data-val="true" data-val-date="El campo fecha_operacion debe ser una fecha." id="fecha_operacion" name="fecha_operacion" type="text" value="03/08/2019">
                     <div class="input-group-addon">
                         <i class="icon-calender"></i>
                     </div>
@@ -42,7 +50,7 @@
         <div class="col-md-4">
             <div class="form-group">
                 <label for="TipoCambio" class="control-label">Tipo Cambio</label>
-                @Html.TextBoxFor(m => m.TipoCambio, "{0:N3}", new { @class = "form-control", @readonly = "readonly" })
+                <input class="form-control" data-val="true" data-val-number="El campo TipoCambio debe ser un número." data-val-required="El campo TipoCambio es obligatorio." id="TipoCambio" name="TipoCambio" readonly="readonly" type="text" value="0.000">
                 <div class="help-block with-errors"></div>
             </div>
         </div>
@@ -50,9 +58,9 @@
     <div class="row">
         <div class="col-md-6">
             <div class="form-group">
-                @Html.LabelFor(m => m.Ruc, "Ruc / Dni", new { @class = "control-label" })
+                <label class="control-label" for="Ruc">Ruc / Dni</label>
                 <div class="input-group">
-                    @Html.TextBoxFor(m => m.Ruc, new { @class = "form-control", @autocomplete = "off" })
+                    <input autocomplete="off" class="form-control" id="Ruc" name="Ruc" type="text" value="" data-bv-field="Ruc">
                     <span class="input-group-btn">
                         <button type="button" class="btn waves-effect waves-light btn-info" onclick="return BuscarPersona()"> <i class="fa fa-search"></i></button>
                     </span>
@@ -61,9 +69,9 @@
         </div>
         <div class="col-md-6">
             <div class="form-group">
-                @Html.LabelFor(m => m.RazonSocial, "Razón Social", new { @class = "control-label" })
+                <label class="control-label" for="RazonSocial">Razón Social</label>
                 <div class="input-group">
-                    @Html.TextBoxFor(m => m.RazonSocial, new { @class = "form-control", @readonly = "readonly" })
+                    <input class="form-control" id="RazonSocial" name="RazonSocial" readonly="readonly" type="text" value="" data-bv-field="RazonSocial">
                     <span class="input-group-btn">
                         <button type="button" class="btn waves-effect waves-light btn-info" id="btnBuscarPersonaIngreso"> <i class="fa fa-search"></i></button>
                     </span>
@@ -74,24 +82,20 @@
     <div class="row">
         <div class="col-sm-8">
             <div class="form-group">
-                @Html.LabelFor(m => m.glosa, "Comentario", new { @class = "control-label" })
-                @Html.TextBoxFor(m => m.glosa, new { @class = "form-control" })
+                <label class="control-label" for="glosa">Comentario</label>
+                <input class="form-control" id="glosa" name="glosa" type="text" value="">
             </div>
         </div>
         <div class="col-sm-4">
             <div class="form-group">
-                @Html.LabelFor(m => m.importe_mn, "Importe", new { @class = "control-label" })
-                @Html.TextBoxFor(m => m.importe_mn, new { @class = "form-control CambiarMontoPago" })
+                <label class="control-label" for="importe_mn">Importe</label>
+                <input class="form-control CambiarMontoPago" data-val="true" data-val-number="El campo importe_mn debe ser un número." data-val-required="El campo importe_mn es obligatorio." id="importe_mn" name="importe_mn" type="text" value="0" oncopy="return false;" onpaste="return false;" oncut="return false;" ondrag="return false;" ondrop="return false;">
             </div>
         </div>
     </div>
     <div class="row">
         <input type="hidden" id="id_persona" name="id_persona" />
-        @Html.HiddenFor(m => m.id_tipo_cambio)
         <input type="hidden" id="id_moneda" name="id_moneda" />
-        @Html.HiddenFor(m => m.id_medio_pago)
-        @Html.HiddenFor(m => m.id_sub_diario)
-        @Html.Hidden("FilaDetalle")
     </div>
     <div class="row">
         <div class="col-md-12">
@@ -163,17 +167,17 @@
     </div>
     <div class="row">
         <div class="col-md-12">
-            @Html.Label("", "Total por pagar", new { @class = "control-label col-md-2" })
+            <label class="control-label col-md-2" for="">Total por pagar</label>
             <div class="col-md-3">
-                @Html.TextBox("TotalPorPagar", null, new { @class = "form-control", @readonly = "readonly" })
+                <input class="form-control" id="TotalPorPagar" name="TotalPorPagar" readonly="readonly" type="text" value="">
             </div>
         </div>
     </div>
     <div class="row">
         <div class="col-md-12">
-            @Html.Label("", "Monto Diferencia", new { @class = "control-label col-md-2" })
+            <label class="control-label col-md-2" for="">Monto Diferencia</label>
             <div class="col-md-3">
-                @Html.TextBox("MontoDiferencia", null, new { @class = "form-control", @readonly = "readonly" })
+                <input class="form-control" id="MontoDiferencia" name="MontoDiferencia" readonly="readonly" type="text" value="">
             </div>
         </div>
     </div>
@@ -182,7 +186,7 @@
         <button type="submit" class="btn btn-success m-r-10"><i class="fa fa-check"></i> Grabar</button>
         <button type="button" class="btn btn-default waves-effect" onclick="pBancoIngresos.close()"><i class="fa fa-ban"></i> Cerrar</button>
     </div>
-}
+</form>
 <style>
     table.dataTable tbody th,
     table.dataTable tbody td {
@@ -195,5 +199,4 @@
     var urlBuscarPersona = '@Url.Action("BuscarPersona", "RegistroBanco", new { Area = "Finanzas" })';
     var sDataDetalleIngresos;
 </script>
-
-@Scripts.Render("~/Cube_Fast/js/customfunctions/Finanzas/RegistroBanco/BancoIngresos.js?" + @DateTime.Now.Ticks)
+<script src="cube_fast/js/customfunctions/formulario.js"></script>

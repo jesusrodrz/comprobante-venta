@@ -99,7 +99,7 @@ $(function() {
     })
 
     const modal = document.createElement('div')
-    modal.classList.add('modal-table ')
+    modal.classList.add('modal-table')
     document.body.appendChild(modal)
     const tableContainer = document
       .querySelector('#' + indentifier)
