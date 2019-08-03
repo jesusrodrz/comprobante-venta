@@ -98,7 +98,9 @@ $(function() {
       })
     })
 
-    const modal = document.querySelector('.modal-table')
+    const modal = document.createElement('div')
+    modal.classList.add('modal-table ')
+    document.body.appendChild(modal)
     const tableContainer = document
       .querySelector('#' + indentifier)
       .closest('.table-responsive')
