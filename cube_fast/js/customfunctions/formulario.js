@@ -67,40 +67,81 @@ $(function() {
       }
     ],
     sScrollY: window.innerHeight - 425,
-    // sScrollX: '110%',
     bScrollCollapse: true,
     pageLength: 15
   })
+  function tabla(indentifier) {
+    $('#' + indentifier).on('draw.dt', function() {
+      const tableTds = [
+        ...document
+          .querySelector('#' + indentifier + ' tbody tr')
+          .querySelectorAll('td')
+      ]
+      const tableThs = [
+        ...document.querySelectorAll('.dataTables_scrollHeadInner th')
+      ]
+      const tbody = document.querySelector(
+        '#' + indentifier + '_wrapper .dataTables_scrollBody'
+      )
+      const thead = document.querySelector(
+        '#' + indentifier + '_wrapper .dataTables_scrollHead'
+      )
+      const width = Math.max(thead.offsetWidth, tbody.offsetWidth)
 
-  $('#ListaRegBanco').on('draw.dt', function() {
-    const tableTds = [
-      ...document
-        .querySelector('#ListaRegBanco tbody tr')
-        .querySelectorAll('td')
-    ]
-    const tableThs = [
-      ...document.querySelectorAll('.dataTables_scrollHeadInner th')
-    ]
-    const tbody = document.querySelector(
-      '#ListaRegBanco_wrapper .dataTables_scrollBody'
-    )
-    const thead = document.querySelector(
-      '#ListaRegBanco_wrapper .dataTables_scrollHead'
-    )
-    const width = Math.max(thead.offsetWidth, tbody.offsetWidth)
+      thead.style.width = width
+      tbody.style.width = width
 
-    thead.style.width = width
-    tbody.style.width = width
-
-    tableTds.forEach((element, index) => {
-      const width = Math.max(element.offsetWidth, tableThs[index].offsetWidth)
-      tableThs[index].style.width = width
-      element.style.width = width
-
-      console.log(width, tableThs[index].offsetWidth, element.offsetWidth)
+      tableTds.forEach((element, index) => {
+        const width = Math.max(element.offsetWidth, tableThs[index].offsetWidth)
+        tableThs[index].style.width = width
+        element.style.width = width
+      })
     })
-  })
 
+    const modal = document.querySelector('.modal-table')
+    const tableContainer = document
+      .querySelector('#' + indentifier)
+      .closest('.table-responsive')
+    const tableContainerParent = tableContainer.parentElement
+    const tableBtn = document.createElement('button')
+    tableBtn.setAttribute('class', 'table-btn-expand btn btn-info')
+    tableBtn.innerHTML = '<span class="mdi mdi-arrow-expand"></span>'
+    tableBtn.id = indentifier + '_btn'
+    tableContainer.append(tableBtn)
+    let openState = false
+    function openModal() {
+      modal.classList.add('active')
+      tableContainer.remove()
+      modal.appendChild(tableContainer)
+      tableContainer.classList.replace('table-responsive', 'table-container')
+      tableBtn
+        .querySelector('span')
+        .classList.replace('mdi-arrow-expand', 'mdi-arrow-compress')
+      tableContainer.querySelector('.dataTables_scrollBody').style.maxHeight =
+        (window.innerWidth - 160).toString() + 'px'
+    }
+    function closeModal() {
+      modal.classList.remove('active')
+      tableContainer.remove()
+      tableContainerParent.appendChild(tableContainer)
+      tableContainer.classList.replace('table-container', 'table-responsive')
+      tableBtn
+        .querySelector('span')
+        .classList.replace('mdi-arrow-compress', 'mdi-arrow-expand')
+      tableContainer.querySelector('.dataTables_scrollBody').style.maxHeight =
+        (window.innerHeight - 425).toString() + 'px'
+    }
+    $('#' + indentifier + '_btn').click(function(e) {
+      if (openState) {
+        closeModal()
+        openState = false
+      } else {
+        openModal()
+        openState = true
+      }
+    })
+  }
+  tabla('ListaRegBanco')
   $('#NotaCredito').click(function(e) {
     e.preventDefault()
     if (pFormulario.length === 1) {
