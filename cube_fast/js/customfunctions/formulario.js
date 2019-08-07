@@ -99,7 +99,7 @@ $(function() {
     })
 
     const modal = document.createElement('div')
-    modal.classList.add('modal-table ')
+    modal.classList.add('modal-table')
     document.body.appendChild(modal)
     const tableContainer = document
       .querySelector('#' + indentifier)
@@ -144,6 +144,7 @@ $(function() {
     })
   }
   tabla('ListaRegBanco')
+
   $('#NotaCredito').click(function(e) {
     e.preventDefault()
     if (pFormulario.length === 1) {
@@ -152,7 +153,7 @@ $(function() {
     pFormulario = CargarPanel(
       'Banco Ingresos',
       'bootstrap-primary',
-      '/Finanzas/RegistroBanco/BancoIngresos',
+      'formulario.html',
       950,
       600
     )

@@ -1,199 +1,254 @@
-@using (Html.BeginForm("GrabarIngresos", "RegistroBanco", FormMethod.Post, new { id = "FrmBancoIngresos" }))
-{
-<div class="form-body">
-    <div class="row">
-        <div class="col-md-4">
-            <div class="form-group">
-                @Html.LabelFor(m => m.id_banco, "Banco", new { @class = "control-label" })
-                @Html.DropDownList("id_banco", null, new { @class = "form-control" })
-            </div>
-        </div>
-        <div class="col-md-4">
-            <div class="form-group">
-                @Html.LabelFor(m => m.id_banco_cuenta, "Banco Cuenta", new { @class = "control-label" })
-                @Html.DropDownList("id_banco_cuenta", null, new { @class = "form-control" })
-            </div>
-        </div>
-        <div class="col-md-4">
-            <div class="form-group">
-                @Html.LabelFor(m => m.id_moneda, "Moneda", new { @class = "control-label" })
-                <input type="text" id="MonedaDes" name="MonedaDes" class="form-control" readonly="true" />
-            </div>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-sm-4">
-            <div class="form-group">
-                @Html.LabelFor(m => m.nro_operacion, "Nro Operación", new { @class = "control-label" })
-                @Html.TextBoxFor(m => m.nro_operacion, new { @class = "form-control" })
-            </div>
-        </div>
-        <div class="col-md-4">
-            <div class="form-group">
-                <label for="fecha_tipo_cambio" class="control-label">Fecha Operación</label>
-                <div class="input-group" id="FechaOperacion">
-                    @Html.TextBoxFor(m => m.fecha_operacion, "{0:dd/MM/yyyy}", new { @class = "form-control" })
-                    <div class="input-group-addon">
-                        <i class="icon-calender"></i>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-4">
-            <div class="form-group">
-                <label for="TipoCambio" class="control-label">Tipo Cambio</label>
-                @Html.TextBoxFor(m => m.TipoCambio, "{0:N3}", new { @class = "form-control", @readonly = "readonly" })
-                <div class="help-block with-errors"></div>
-            </div>
-        </div>
-    </div>
+
+<form Id="NotaCreditoN" action="/Ventas/NotaCredito/Grabar" method="post"><input name="__RequestVerificationToken" type="hidden" value="S-a-jZP97tXYYlCPMz_hCD8wFeBP0OXJuvEcbcVOcRpnYvrR2H14Gj-MTlSdJlt_GZ0NLy2qTgDFIh8NToYO9UsBqCrZx1dAV1zbnee7K_E1" /><div class="form-body">
     <div class="row">
         <div class="col-md-6">
             <div class="form-group">
-                @Html.LabelFor(m => m.Ruc, "Ruc / Dni", new { @class = "control-label" })
-                <div class="input-group">
-                    @Html.TextBoxFor(m => m.Ruc, new { @class = "form-control", @autocomplete = "off" })
-                    <span class="input-group-btn">
-                        <button type="button" class="btn waves-effect waves-light btn-info" onclick="return BuscarPersona()"> <i class="fa fa-search"></i></button>
+                <label class="control-label" for="fecha_emision">Fecha de Emisi&#243;n</label>
+                <div class="input-group calendar-form">
+                    <input class="form-control calendar-form" data-val="true" data-val-date="El campo fecha_emision debe ser una fecha." data-val-required="The fecha_emision field is required." id="fecha_emision" name="fecha_emision" type="text" value="05/08/2019" />
+                    <span class="input-group-addon">
+                        <i class="mdi mdi-calendar"></i>
                     </span>
                 </div>
             </div>
         </div>
         <div class="col-md-6">
             <div class="form-group">
-                @Html.LabelFor(m => m.RazonSocial, "Razón Social", new { @class = "control-label" })
-                <div class="input-group">
-                    @Html.TextBoxFor(m => m.RazonSocial, new { @class = "form-control", @readonly = "readonly" })
-                    <span class="input-group-btn">
-                        <button type="button" class="btn waves-effect waves-light btn-info" id="btnBuscarPersonaIngreso"> <i class="fa fa-search"></i></button>
+                <label class="control-label" for="fecha_vencimiento">Fecha de Vencimiento</label>
+                <div class="input-group" id="FechaVencimiento">
+                    <input class="form-control" data-val="true" data-val-date="El campo fecha_vencimiento debe ser una fecha." data-val-required="The fecha_vencimiento field is required." id="fecha_vencimiento" name="fecha_vencimiento" type="text" value="05/08/2019" />
+                    <span class="input-group-addon">
+                        <i class="mdi mdi-calendar"></i>
                     </span>
                 </div>
             </div>
         </div>
     </div>
     <div class="row">
-        <div class="col-sm-8">
+        <div class="col-md-6">
             <div class="form-group">
-                @Html.LabelFor(m => m.glosa, "Comentario", new { @class = "control-label" })
-                @Html.TextBoxFor(m => m.glosa, new { @class = "form-control" })
+                <label class="control-label" for="MonedaDes">Moneda</label>
+                <input class="form-control" id="MonedaDes" name="MonedaDes" readonly="readonly" type="text" value="" />
+                <input data-val="true" data-val-number="El campo id_moneda debe ser un número." id="id_moneda" name="id_moneda" type="hidden" value="" />
             </div>
         </div>
-        <div class="col-sm-4">
+        <div class="col-md-6">
             <div class="form-group">
-                @Html.LabelFor(m => m.importe_mn, "Importe", new { @class = "control-label" })
-                @Html.TextBoxFor(m => m.importe_mn, new { @class = "form-control CambiarMontoPago" })
+                <label class="control-label" for="TipoCambio">Tipo de Cambio</label>
+                <input class="form-control" data-val="true" data-val-number="El campo TipoCambio debe ser un número." data-val-required="The TipoCambio field is required." id="TipoCambio" name="TipoCambio" readonly="readonly" type="text" value="0.000" />
+                <input data-val="true" data-val-number="El campo id_tipo_cambio debe ser un número." id="id_tipo_cambio" name="id_tipo_cambio" type="hidden" value="" />
             </div>
         </div>
     </div>
     <div class="row">
-        <input type="hidden" id="id_persona" name="id_persona" />
-        @Html.HiddenFor(m => m.id_tipo_cambio)
-        <input type="hidden" id="id_moneda" name="id_moneda" />
-        @Html.HiddenFor(m => m.id_medio_pago)
-        @Html.HiddenFor(m => m.id_sub_diario)
-        @Html.Hidden("FilaDetalle")
+        <div class="col-md-6">
+            <div class="form-group">
+                <label class="control-label" for="serie">Serie</label>
+                <input autocomplete="off" class="form-control" id="serie" name="serie" readonly="readonly" type="text" value="" />
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-group">
+                <label class="control-label" for="numero">N&#250;mero</label>
+                <input autocomplete="off" class="form-control" id="numero" name="numero" readonly="readonly" type="text" value="" />
+            </div>
+        </div>
     </div>
     <div class="row">
-        <div class="col-md-12">
-            <ul class="nav customtab2 nav-tabs fix-header" role="tablist">
-                <li role="presentation" class="active"><a href="#ComprobantesCancelar" aria-controls="Agregar Comprobante" role="tab" data-toggle="tab" aria-expanded="true"><span class="visible-xs"><i class="ti-menu-alt"></i></span><span class="hidden-xs">Comprobantes a Cancelar</span></a></li>
-                <li role="presentation" class=""><a href="#Otros" aria-controls="Otros" role="tab" data-toggle="tab" aria-expanded="false"><span class="visible-xs"><i class="ti-money"></i></span> <span class="hidden-xs">Otros</span></a></li>
-            </ul>
-            <div class="tab-content m-t-15">
-                <div role="tabpanel" class="tab-pane fade active in" id="ComprobantesCancelar">
-                    <div class="form-inline m-b-10">
-                        <button type="button" class="btn btn-info btn-rounded" id="ComprobantesPendientes" data-ref="@Url.Action("AgregarCompVentaPendiente", "CompVenta", new { Area = "Ventas" })"><i class="fa fa-plus"></i> Agregar</button>
-                    </div>
-                    <div class="table-responsive">
-                        <table class="table table-condensed table-striped table-hover m-t-0 m-b-0 table-main" id="DetalleCompCompraIngresos">
-                            <thead>
-                                <tr>
-                                    <th>Acción</th>
-                                    <th>Item</th>
-                                    <th>F. Registro</th>
-                                    <th>Socio Negocio</th>
-                                    <th>Nro. Doc</th>
-                                    <th>Moneda</th>
-                                    <th>M. Deuda</th>
-                                    <th>M. Pago</th>
-                                    <th>M. Saldo</th>
-                                    <th>Saldo MN</th>
-                                    <th>Saldo ME</th>
-                                </tr>
-                            </thead>
-                            <tbody></tbody>
-                            <tfoot>
-                                <tr>
-                                    <td colspan="10"><label id="DetalleTotalFilas">Total Registros : 0</label></td>
-                                </tr>
-                            </tfoot>
-                        </table>
-                    </div>
+        <div class="col-md-6">
+            <div class="form-group">
+                <label class="control-label" for="Ruc">Ruc / Dni</label>
+                <div class="input-group">
+                    <input autocomplete="off" class="form-control" id="Ruc" name="Ruc" type="text" value="" />
+                    <span class="input-group-btn">
+                        <button type="button" class="btn waves-effect waves-light btn-info" id="botonPanel2"> <i class="fa fa-search"></i></button>
+                    </span>
                 </div>
-                <div role="tabpanel" class="tab-pane fade" id="Otros">
-                    <div class="form-inline m-b-10">
-                        <button type="button" class="btn btn-info btn-rounded" id="AgregarAsientoDetalle"><i class="fa fa-plus"></i> Agregar</button>
-                    </div>
-                    <div class="table-responsive">
-                        <table class="table table-condensed table-striped table-hover m-t-0 m-b-0 table-main" id="DetalleAsientoIngresoOtros">
-                            <thead>
-                                <tr>
-                                    <th>Acción</th>
-                                    <th>Item</th>
-                                    <th>Cuenta</th>
-                                    <th>Descripción</th>
-                                    <th>D/H</th>
-                                    <th>Monto</th>
-                                    <th>RUC</th>
-                                    <th>Socio Negocio</th>
-                                    <th>Tipo Doc</th>
-                                    <th>Serie</th>
-                                    <th>Nro. Doc</th>
-                                    <th>Fecha Emisión</th>
-                                    <th>Fecha Vcto</th>
-                                    <th>Glosa</th>
-                                </tr>
-                            </thead>
-                            <tbody></tbody>
-                        </table>
-                    </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-group">
+                <label class="control-label" for="RazonSocial">Raz&#243;n Social</label>
+                <div class="input-group">
+                    <input class="form-control" id="RazonSocial" name="RazonSocial" readonly="readonly" type="text" value="" />
+                    <span class="input-group-btn">
+                        <button type="button" class="btn waves-effect waves-light btn-info" id="BuscarClienteCmpVenta"> <i class="fa fa-search"></i></button>
+                    </span>
                 </div>
             </div>
         </div>
     </div>
     <div class="row">
         <div class="col-md-12">
-            @Html.Label("", "Total por pagar", new { @class = "control-label col-md-2" })
-            <div class="col-md-3">
-                @Html.TextBox("TotalPorPagar", null, new { @class = "form-control", @readonly = "readonly" })
+            <div class="form-group">
+                <label class="control-label" for="direccion_cliente">Direcci&#243;n</label>
+                <div class="input-group">
+                    <input autocomplete="off" class="form-control" id="direccion_cliente" name="direccion_cliente" readonly="true" type="text" value="" />
+                    <span class="input-group-btn">
+                        <button type="button" class="btn waves-effect waves-light btn-info" id="SeleccionarDireccion"> <i class="fa fa-search"></i></button>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-3">
+            <div class="form-group">
+                <label class="control-label" for="direccion_departamento">Departamento</label>
+                <input autocomplete="off" class="form-control" data-val="true" data-val-length="The field direccion_departamento must be a string with a maximum length of 100." data-val-length-max="100" id="direccion_departamento" name="direccion_departamento" readonly="true" type="text" value="" />
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="form-group">
+                <label class="control-label" for="direccion_provincia">Provincia</label>
+                <input autocomplete="off" class="form-control" data-val="true" data-val-length="The field direccion_provincia must be a string with a maximum length of 100." data-val-length-max="100" id="direccion_provincia" name="direccion_provincia" readonly="true" type="text" value="" />
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="form-group">
+                <label class="control-label" for="direccion_distrito">Distrito</label>
+                <input autocomplete="off" class="form-control" data-val="true" data-val-length="The field direccion_distrito must be a string with a maximum length of 100." data-val-length-max="100" id="direccion_distrito" name="direccion_distrito" readonly="true" type="text" value="" />
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="form-group">
+                <label class="control-label" for="codigo_ubigeo">C&#243;digo Ubigeo</label>
+                <input autocomplete="off" class="form-control" data-val="true" data-val-length="The field codigo_ubigeo must be a string with a maximum length of 20." data-val-length-max="20" id="codigo_ubigeo" name="codigo_ubigeo" readonly="true" type="text" value="" />
             </div>
         </div>
     </div>
     <div class="row">
         <div class="col-md-12">
-            @Html.Label("", "Monto Diferencia", new { @class = "control-label col-md-2" })
-            <div class="col-md-3">
-                @Html.TextBox("MontoDiferencia", null, new { @class = "form-control", @readonly = "readonly" })
+            <div class="form-group">
+                <label class="control-label" for="id_motivo_documento">Motivo</label>
+                <select class="form-control" data-val="true" data-val-number="El campo id_motivo_documento debe ser un número." id="id_motivo_documento" name="id_motivo_documento"><option value="">---Seleccionar---</option>
+<option value="1">Anulaci&#243;n de la operaci&#243;n</option>
+<option value="2">Anulaci&#243;n por error en el RUC.</option>
+<option value="3">Correcci&#243;n por error en la descripci&#243;n</option>
+<option value="4">Descuento global</option>
+<option value="5">Descuento por Item</option>
+<option value="6">Devoluci&#243;n total</option>
+<option value="7">Devoluci&#243;n parcial</option>
+<option value="8">Bonificaci&#243;n</option>
+<option value="9">Disminuci&#243;n en el valor</option>
+</select>
             </div>
         </div>
     </div>
-</div>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="form-group">
+                <label class="control-label" for="factura">Seleccionar documento que modifica</label>
+                <div class="input-group">
+                    <input class="form-control" id="factura" name="factura" readonly="readonly" type="text" value="" />
+                    <input data-val="true" data-val-number="El campo id_doc_ref debe ser un número." id="id_doc_ref" name="id_doc_ref" type="hidden" value="" />
+                    <span class="input-group-btn">
+                        <button type="button" class="btn waves-effect waves-light btn-info agregarcompventa" data-ref="/Ventas/CompVenta/SeleccionarCompVenta" id="AgregarOrden"> <i class="fa fa-plus"></i></button>
+                    </span>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-group">
+                <label class="control-label" for="FechaDocumentoModifica">Fecha Documento</label>
+                <div class="input-group" id="FechaDocumento">
+                    <input Value="" autocomplete="off" class="form-control" data-val="true" data-val-date="El campo fecha_tipo_cambio debe ser una fecha." id="fecha_tipo_cambio" name="fecha_tipo_cambio" type="text" value="" />
+                    <span class="input-group-addon">
+                        <i class="mdi mdi-calendar"></i>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="form-group">
+                <label class="control-label" for="Comentario">Comentario</label>
+                <input autocomplete="off" class="form-control" id="comentario" name="comentario" type="text" value="" />
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="table-responsive">
+                <table class="table table-striped color-bordered-table muted-bordered-table m-t-0 m-b-0 table-main" id="DetalleNotaCredito">
+                    <thead>
+                        <tr>
+                            <th>
+                                Eliminar
+                            </th>
+                            <th>Item</th>
+                            <th>Descripción</th>
+                            <th>Unidad</th>
+                            <th>Cantidad</th>
+                            <th>Precio Uni.</th>
+                            <th>Precio Total</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                    <tfoot>
+                        <tr>
+                            <td colspan="4">
+                                <label id="lblTotalFilas">Total Registros : 0</label>
+                            </td>
+                            <td colspan="2">
+                                <label>Monto Venta</label>
+                            </td>
+                            <td class="TextoDerecha">
+                                <label id="MontoVentaNC">0.00</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="4"></td>
+                            <td colspan="2">
+                                <label>I.G.V.</label>
+                            </td>
+                            <td class="TextoDerecha">
+                                <label id="IgvNC">0.00</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="4"></td>
+                            <td colspan="2">
+                                <label>Monto Total</label>
+                            </td>
+                            <td class="TextoDerecha">
+                                <label id="MontoTotalNC">0.00</label>
+                            </td>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <input data-val="true" data-val-number="El campo id_persona debe ser un número." id="id_persona" name="id_persona" type="hidden" value="" />
+        <input data-val="true" data-val-number="El campo valor_igv debe ser un número." data-val-required="The valor_igv field is required." id="valor_igv" name="valor_igv" type="hidden" value="18.00000" />
+        <input data-val="true" data-val-number="El campo id_orden_venta debe ser un número." id="id_orden_venta" name="id_orden_venta" type="hidden" value="" />
+        <input data-val="true" data-val-number="El campo id_tipo_doc_ref debe ser un número." id="id_tipo_doc_ref" name="id_tipo_doc_ref" type="hidden" value="" />
+    </div>
     <div class="form-actions m-t-10 m-b-10">
         <button type="submit" class="btn btn-success m-r-10"><i class="fa fa-check"></i> Grabar</button>
-        <button type="button" class="btn btn-default waves-effect" onclick="pBancoIngresos.close()"><i class="fa fa-ban"></i> Cerrar</button>
+        <button type="button" class="btn btn-default waves-effect" onclick="pNotaCredito.close()"><i class="fa fa-ban"></i> Cerrar</button>
     </div>
-}
-<style>
-    table.dataTable tbody th,
-    table.dataTable tbody td {
-        white-space: nowrap;
-    }
-</style>
-<script>
-    var urlCuentaBanco = '@Url.Action("CargarCuentaBanco", "RegistroBanco", new { Area = "Finanzas" })';
-    var urlCargarMoneda = '@Url.Action("CargarMoneda", "RegistroBanco", new { Area = "Finanzas" })';
-    var urlBuscarPersona = '@Url.Action("BuscarPersona", "RegistroBanco", new { Area = "Finanzas" })';
-    var sDataDetalleIngresos;
-</script>
+</div>
+</form><script>
+    var urlBuscarCliente = '/General/Persona/_BuscarCliente';
+    var urlSeleccionarDireccion = '/General/Persona/SeleccionarDireccion/js-id';
+    var urlFacturaImprimir = '/Reporte/Venta/FacturaImpresion?id=js-id&td=js-td';
+    var urlCargarDetalle = '/Ventas/CompVenta/CargarDetalleComprobanteVenta/js-id';
+    var DataDetalleNotaCredito = [];
 
-@Scripts.Render("~/Cube_Fast/js/customfunctions/Finanzas/RegistroBanco/BancoIngresos.js?" + @DateTime.Now.Ticks)
+    $('#botonPanel2').click(function(e) {
+    e.preventDefault()
+    pFormulario = CargarPanel(
+      'Banco Ingresos',
+      'bootstrap-primary',
+      'formulario.html',
+      950,
+      600,
+      true
+    )
+  })
+</script>
+<script src="/Cube_Fast/js/customfunctions/NotaCredito/NotaCredito.js?637006138815112064"></script>

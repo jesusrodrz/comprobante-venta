@@ -159,16 +159,19 @@ function MostrarErrores(Msj) {
  * @param {string} Url.
  * @returns {string} Panel.
  */
-function CargarPanel(TitlePanel,ThemePanel,Url,Width = 850,Height = 600) {
+function CargarPanel(TitlePanel,ThemePanel,Url,Width = 850,Height = 600, modal = false) {
     const offset = 50
     const value = ((window.innerHeight - window.innerHeight * 0.9 ) / 2 )
     const height = Math.min(Height, window.innerHeight * 0.9)
-    console.log(value, height)
 
+    const mobile = (window.innerWidth < 767) 
+    console.log('modal: ' , (modal) ? 'modal' : false)
     var Panel = $.jsPanel({
         closeOnEscape: true,
         position: `center-top 0 ${value}`,
         show: 'animated fadeInDownBig',
+        // panelType: (modal) ? 'modal' : false,
+        panelType: 'modal',
         headerTitle: TitlePanel,
         theme: ThemePanel,
         contentOverflow: {
@@ -207,6 +210,8 @@ function CargarPanel(TitlePanel,ThemePanel,Url,Width = 850,Height = 600) {
         },
         onwindowresize: false
     }).css({ 'z-index': 9999 });
+
+    if(mobile && !modal) {  Panel.maximize() }
 
     return Panel;
 }
