@@ -1,8 +1,14 @@
+<<<<<<< HEAD
 
 <form Id="NotaCreditoN" action="/Ventas/NotaCredito/Grabar" method="post"><input name="__RequestVerificationToken" type="hidden" value="S-a-jZP97tXYYlCPMz_hCD8wFeBP0OXJuvEcbcVOcRpnYvrR2H14Gj-MTlSdJlt_GZ0NLy2qTgDFIh8NToYO9UsBqCrZx1dAV1zbnee7K_E1" /><div class="form-body">
+=======
+<form id="FrmBancoIngresos" method="POST">
+<div class="form-body">
+>>>>>>> f36add6e6faeaa507a0059517a362dfe8faa113a
     <div class="row">
         <div class="col-md-6">
             <div class="form-group">
+<<<<<<< HEAD
                 <label class="control-label" for="fecha_emision">Fecha de Emisi&#243;n</label>
                 <div class="input-group calendar-form">
                     <input class="form-control calendar-form" data-val="true" data-val-date="El campo fecha_emision debe ser una fecha." data-val-required="The fecha_emision field is required." id="fecha_emision" name="fecha_emision" type="text" value="05/08/2019" />
@@ -10,10 +16,22 @@
                         <i class="mdi mdi-calendar"></i>
                     </span>
                 </div>
+=======
+                <label class="control-label" for="id_banco">Banco</label>
+                <select class="form-control" id="id_banco" name="id_banco" data-bv-field="id_banco">
+                    <option value="">---Seleccionar--</option>
+                    <option value="1">Credito</option>
+                    <option value="2">Santander</option>
+                    <option value="3">BCP</option>
+                    <option value="4">Scotiabank</option>
+                    <option value="5">Banco Peru  RM</option>
+                </select>
+>>>>>>> f36add6e6faeaa507a0059517a362dfe8faa113a
             </div>
         </div>
         <div class="col-md-6">
             <div class="form-group">
+<<<<<<< HEAD
                 <label class="control-label" for="fecha_vencimiento">Fecha de Vencimiento</label>
                 <div class="input-group" id="FechaVencimiento">
                     <input class="form-control" data-val="true" data-val-date="El campo fecha_vencimiento debe ser una fecha." data-val-required="The fecha_vencimiento field is required." id="fecha_vencimiento" name="fecha_vencimiento" type="text" value="05/08/2019" />
@@ -21,36 +39,68 @@
                         <i class="mdi mdi-calendar"></i>
                     </span>
                 </div>
+=======
+                <label class="control-label" for="id_banco_cuenta">Banco Cuenta</label>
+                <select class="form-control" id="id_banco_cuenta" name="id_banco_cuenta">
+                    <option value="">---Seleccionar--</option>
+                </select>
+>>>>>>> f36add6e6faeaa507a0059517a362dfe8faa113a
             </div>
         </div>
     </div>
     <div class="row">
         <div class="col-md-6">
             <div class="form-group">
+<<<<<<< HEAD
                 <label class="control-label" for="MonedaDes">Moneda</label>
                 <input class="form-control" id="MonedaDes" name="MonedaDes" readonly="readonly" type="text" value="" />
                 <input data-val="true" data-val-number="El campo id_moneda debe ser un número." id="id_moneda" name="id_moneda" type="hidden" value="" />
+=======
+                <label class="control-label" for="id_moneda">Moneda</label>
+                <input type="text" id="MonedaDes" name="MonedaDes" class="form-control" readonly="true">
+>>>>>>> f36add6e6faeaa507a0059517a362dfe8faa113a
             </div>
         </div>
         <div class="col-md-6">
             <div class="form-group">
+<<<<<<< HEAD
                 <label class="control-label" for="TipoCambio">Tipo de Cambio</label>
                 <input class="form-control" data-val="true" data-val-number="El campo TipoCambio debe ser un número." data-val-required="The TipoCambio field is required." id="TipoCambio" name="TipoCambio" readonly="readonly" type="text" value="0.000" />
                 <input data-val="true" data-val-number="El campo id_tipo_cambio debe ser un número." id="id_tipo_cambio" name="id_tipo_cambio" type="hidden" value="" />
+=======
+                <label class="control-label" for="nro_operacion">Nro Operación</label>
+                <input class="form-control" id="nro_operacion" name="nro_operacion" type="text" value="" data-bv-field="nro_operacion">
+>>>>>>> f36add6e6faeaa507a0059517a362dfe8faa113a
             </div>
         </div>
     </div>
     <div class="row">
         <div class="col-md-6">
             <div class="form-group">
+<<<<<<< HEAD
                 <label class="control-label" for="serie">Serie</label>
                 <input autocomplete="off" class="form-control" id="serie" name="serie" readonly="readonly" type="text" value="" />
+=======
+                <label for="fecha_tipo_cambio" class="control-label">Fecha Operación</label>
+                <div class="input-group" id="FechaOperacion">
+                    <input class="form-control" data-val="true" data-val-date="El campo fecha_operacion debe ser una fecha." id="fecha_operacion" name="fecha_operacion" type="text" value="03/08/2019">
+                    <div class="input-group-addon">
+                        <i class="icon-calender"></i>
+                    </div>
+                </div>
+>>>>>>> f36add6e6faeaa507a0059517a362dfe8faa113a
             </div>
         </div>
         <div class="col-md-6">
             <div class="form-group">
+<<<<<<< HEAD
                 <label class="control-label" for="numero">N&#250;mero</label>
                 <input autocomplete="off" class="form-control" id="numero" name="numero" readonly="readonly" type="text" value="" />
+=======
+                <label for="TipoCambio" class="control-label">Tipo Cambio</label>
+                <input class="form-control" data-val="true" data-val-number="El campo TipoCambio debe ser un número." data-val-required="El campo TipoCambio es obligatorio." id="TipoCambio" name="TipoCambio" readonly="readonly" type="text" value="0.000">
+                <div class="help-block with-errors"></div>
+>>>>>>> f36add6e6faeaa507a0059517a362dfe8faa113a
             </div>
         </div>
     </div>
@@ -59,7 +109,11 @@
             <div class="form-group">
                 <label class="control-label" for="Ruc">Ruc / Dni</label>
                 <div class="input-group">
+<<<<<<< HEAD
                     <input autocomplete="off" class="form-control" id="Ruc" name="Ruc" type="text" value="" />
+=======
+                    <input autocomplete="off" class="form-control" id="Ruc" name="Ruc" type="text" value="" data-bv-field="Ruc">
+>>>>>>> f36add6e6faeaa507a0059517a362dfe8faa113a
                     <span class="input-group-btn">
                         <button type="button" class="btn waves-effect waves-light btn-info" id="botonPanel2"> <i class="fa fa-search"></i></button>
                     </span>
@@ -68,6 +122,7 @@
         </div>
         <div class="col-md-6">
             <div class="form-group">
+<<<<<<< HEAD
                 <label class="control-label" for="RazonSocial">Raz&#243;n Social</label>
                 <div class="input-group">
                     <input class="form-control" id="RazonSocial" name="RazonSocial" readonly="readonly" type="text" value="" />
@@ -84,6 +139,11 @@
                 <label class="control-label" for="direccion_cliente">Direcci&#243;n</label>
                 <div class="input-group">
                     <input autocomplete="off" class="form-control" id="direccion_cliente" name="direccion_cliente" readonly="true" type="text" value="" />
+=======
+                <label class="control-label" for="RazonSocial">Razón Social</label>
+                <div class="input-group">
+                    <input class="form-control" id="RazonSocial" name="RazonSocial" readonly="readonly" type="text" value="" data-bv-field="RazonSocial">
+>>>>>>> f36add6e6faeaa507a0059517a362dfe8faa113a
                     <span class="input-group-btn">
                         <button type="button" class="btn waves-effect waves-light btn-info" id="SeleccionarDireccion"> <i class="fa fa-search"></i></button>
                     </span>
@@ -94,12 +154,18 @@
     <div class="row">
         <div class="col-md-3">
             <div class="form-group">
+<<<<<<< HEAD
                 <label class="control-label" for="direccion_departamento">Departamento</label>
                 <input autocomplete="off" class="form-control" data-val="true" data-val-length="The field direccion_departamento must be a string with a maximum length of 100." data-val-length-max="100" id="direccion_departamento" name="direccion_departamento" readonly="true" type="text" value="" />
+=======
+                <label class="control-label" for="glosa">Comentario</label>
+                <input class="form-control" id="glosa" name="glosa" type="text" value="">
+>>>>>>> f36add6e6faeaa507a0059517a362dfe8faa113a
             </div>
         </div>
         <div class="col-md-3">
             <div class="form-group">
+<<<<<<< HEAD
                 <label class="control-label" for="direccion_provincia">Provincia</label>
                 <input autocomplete="off" class="form-control" data-val="true" data-val-length="The field direccion_provincia must be a string with a maximum length of 100." data-val-length-max="100" id="direccion_provincia" name="direccion_provincia" readonly="true" type="text" value="" />
             </div>
@@ -114,10 +180,15 @@
             <div class="form-group">
                 <label class="control-label" for="codigo_ubigeo">C&#243;digo Ubigeo</label>
                 <input autocomplete="off" class="form-control" data-val="true" data-val-length="The field codigo_ubigeo must be a string with a maximum length of 20." data-val-length-max="20" id="codigo_ubigeo" name="codigo_ubigeo" readonly="true" type="text" value="" />
+=======
+                <label class="control-label" for="importe_mn">Importe</label>
+                <input class="form-control CambiarMontoPago" data-val="true" data-val-number="El campo importe_mn debe ser un número." data-val-required="El campo importe_mn es obligatorio." id="importe_mn" name="importe_mn" type="text" value="0" oncopy="return false;" onpaste="return false;" oncut="return false;" ondrag="return false;" ondrop="return false;">
+>>>>>>> f36add6e6faeaa507a0059517a362dfe8faa113a
             </div>
         </div>
     </div>
     <div class="row">
+<<<<<<< HEAD
         <div class="col-md-12">
             <div class="form-group">
                 <label class="control-label" for="id_motivo_documento">Motivo</label>
@@ -134,6 +205,10 @@
 </select>
             </div>
         </div>
+=======
+        <input type="hidden" id="id_persona" name="id_persona" />
+        <input type="hidden" id="id_moneda" name="id_moneda" />
+>>>>>>> f36add6e6faeaa507a0059517a362dfe8faa113a
     </div>
     <div class="row">
         <div class="col-md-6">
@@ -162,14 +237,21 @@
     </div>
     <div class="row">
         <div class="col-md-12">
+<<<<<<< HEAD
             <div class="form-group">
                 <label class="control-label" for="Comentario">Comentario</label>
                 <input autocomplete="off" class="form-control" id="comentario" name="comentario" type="text" value="" />
+=======
+            <label class="control-label col-md-2" for="">Total por pagar</label>
+            <div class="col-md-3">
+                <input class="form-control" id="TotalPorPagar" name="TotalPorPagar" readonly="readonly" type="text" value="">
+>>>>>>> f36add6e6faeaa507a0059517a362dfe8faa113a
             </div>
         </div>
     </div>
     <div class="row">
         <div class="col-md-12">
+<<<<<<< HEAD
             <div class="table-responsive">
                 <table class="table table-striped color-bordered-table muted-bordered-table m-t-0 m-b-0 table-main" id="DetalleNotaCredito">
                     <thead>
@@ -218,6 +300,11 @@
                         </tr>
                     </tfoot>
                 </table>
+=======
+            <label class="control-label col-md-2" for="">Monto Diferencia</label>
+            <div class="col-md-3">
+                <input class="form-control" id="MontoDiferencia" name="MontoDiferencia" readonly="readonly" type="text" value="">
+>>>>>>> f36add6e6faeaa507a0059517a362dfe8faa113a
             </div>
         </div>
     </div>
@@ -231,6 +318,7 @@
         <button type="submit" class="btn btn-success m-r-10"><i class="fa fa-check"></i> Grabar</button>
         <button type="button" class="btn btn-default waves-effect" onclick="pNotaCredito.close()"><i class="fa fa-ban"></i> Cerrar</button>
     </div>
+<<<<<<< HEAD
 </div>
 </form><script>
     var urlBuscarCliente = '/General/Persona/_BuscarCliente';
@@ -252,3 +340,19 @@
   })
 </script>
 <script src="/Cube_Fast/js/customfunctions/NotaCredito/NotaCredito.js?637006138815112064"></script>
+=======
+</form>
+<style>
+    table.dataTable tbody th,
+    table.dataTable tbody td {
+        white-space: nowrap;
+    }
+</style>
+<script>
+    var urlCuentaBanco = '@Url.Action("CargarCuentaBanco", "RegistroBanco", new { Area = "Finanzas" })';
+    var urlCargarMoneda = '@Url.Action("CargarMoneda", "RegistroBanco", new { Area = "Finanzas" })';
+    var urlBuscarPersona = '@Url.Action("BuscarPersona", "RegistroBanco", new { Area = "Finanzas" })';
+    var sDataDetalleIngresos;
+</script>
+<script src="cube_fast/js/customfunctions/formulario.js"></script>
+>>>>>>> f36add6e6faeaa507a0059517a362dfe8faa113a
