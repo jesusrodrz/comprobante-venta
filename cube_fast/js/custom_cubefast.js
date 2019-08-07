@@ -170,8 +170,7 @@ function CargarPanel(TitlePanel,ThemePanel,Url,Width = 850,Height = 600, modal =
         closeOnEscape: true,
         position: `center-top 0 ${value}`,
         show: 'animated fadeInDownBig',
-        // panelType: (modal) ? 'modal' : false,
-        panelType: 'modal',
+        panelType: (modal) ? 'modal' : false,
         headerTitle: TitlePanel,
         theme: ThemePanel,
         contentOverflow: {
