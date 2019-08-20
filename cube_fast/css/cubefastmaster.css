@@ -110,3 +110,32 @@
 .bg-iframe {
   background-color: #fff !important;
 }
+
+.dataTables_scroll {
+  position: relative;
+}
+.btnTable {
+  position: absolute;
+  border-radius: 50%;
+  opacity: 0.7;
+  right: 1em;
+  animation: updown ease-in-out 0.7s infinite alternate;
+}
+.btnTable--up {
+  top: 4.5em;
+}
+.btnTable--down {
+  bottom: 4.5em;
+}
+.btnTable:hover,
+.btnTable.inactive {
+  opacity: 0 !important;
+}
+@keyframes updown {
+  from {
+    transform: translateY(-1em);
+  }
+  to {
+    transform: translateY(1em);
+  }
+}

@@ -71,6 +71,7 @@ $(function() {
     pageLength: 15
   })
   function tabla(indentifier) {
+    let singsState = false
     $('#' + indentifier).on('draw.dt', function() {
       const tableTds = [
         ...document
@@ -96,6 +97,10 @@ $(function() {
         tableThs[index].style.width = width
         element.style.width = width
       })
+
+      if (!singsState) {
+        setBtnSings()
+      }
     })
 
     const modal = document.createElement('div')
@@ -142,6 +147,39 @@ $(function() {
         openState = true
       }
     })
+
+    function setBtnSings() {
+      ingsState = true
+      console.log(`#${indentifier} .dataTables_scrollBody`)
+      const tableBody = document.querySelector(`.dataTables_scrollBody`)
+      const tableWrapper = tableBody.parentElement.parentElement
+      const btnDown = document.createElement('span')
+      const btnUP = document.createElement('span')
+      btnUP.innerHTML = '<span class="mdi mdi-arrow-up"></span>'
+      btnDown.innerHTML = '<span class="mdi mdi-arrow-down"></span>'
+
+      btnUP.setAttribute('class', 'btn btn-info btnTable btnTable--up inactive')
+      btnDown.setAttribute('class', 'btn btn-info btnTable btnTable--down inactive')
+
+      tableWrapper.appendChild(btnDown)
+      tableWrapper.appendChild(btnUP)
+      if(tableBody.scrollHeight / 2 > tableBody.scrollTop){
+        btnDown.classList.remove('inactive')
+        btnUP.classList.add('inactive')
+      } else if(tableBody.scrollHeight / 2 < tableBody.scrollTop){
+        btnDown.classList.add('inactive')
+        btnUP.classList.remove('inactive')
+      }
+      tableBody.addEventListener('scroll', () => {
+        if(tableBody.scrollHeight / 2.5 > tableBody.scrollTop){
+          btnDown.classList.remove('inactive')
+          btnUP.classList.add('inactive')
+        } else if(tableBody.scrollHeight / 2.5 < tableBody.scrollTop){
+          btnDown.classList.add('inactive')
+          btnUP.classList.remove('inactive')
+        }
+      })
+    }
   }
   tabla('ListaRegBanco')
 
