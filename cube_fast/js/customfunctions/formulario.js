@@ -149,7 +149,6 @@ $(function() {
     })
 
     function setBtnSings() {
-      singsState = true
       console.log(`#${indentifier} .dataTables_scrollBody`)
       const tableBody = document.querySelector(`.dataTables_scrollBody`)
       const tableWrapper = tableBody.parentElement.parentElement
@@ -166,22 +165,45 @@ $(function() {
 
       tableWrapper.appendChild(btnDown)
       tableWrapper.appendChild(btnUP)
-      if (tableBody.scrollHeight / 2 > tableBody.scrollTop) {
-        btnDown.classList.remove('inactive')
-        btnUP.classList.add('inactive')
-      } else if (tableBody.scrollHeight / 2 < tableBody.scrollTop) {
-        btnDown.classList.add('inactive')
-        btnUP.classList.remove('inactive')
-      }
-      tableBody.addEventListener('scroll', () => {
-        if (tableBody.scrollHeight / 2.5 > tableBody.scrollTop) {
-          btnDown.classList.remove('inactive')
-          btnUP.classList.add('inactive')
-        } else if (tableBody.scrollHeight / 2.5 < tableBody.scrollTop) {
+
+      const scrollFactor = tableBody.scrollHeight / 15
+
+      function updateBtns() {
+        const top = Math.round(tableBody.scrollTop)
+        const viewHeight = tableBody.clientHeight
+        const height = tableBody.scrollHeight
+
+        if (top + viewHeight + scrollFactor > height) {
           btnDown.classList.add('inactive')
+        } else {
+          btnDown.classList.remove('inactive')
+        }
+
+        if (top + scrollFactor < viewHeight) {
+          btnUP.classList.add('inactive')
+        } else {
           btnUP.classList.remove('inactive')
         }
+      }
+      updateBtns()
+      tableBody.addEventListener('scroll', () => {
+        updateBtns()
       })
+
+      tableWrapper.addEventListener('click', e => {
+        if (e.target.closest('.btnTable') === btnDown) {
+          tableBody.scroll({
+            top: tableBody.scrollTop + scrollFactor,
+            behavior: 'smooth'
+          })
+        } else if (e.target.closest('.btnTable') === btnUP) {
+          tableBody.scroll({
+            top: tableBody.scrollTop - scrollFactor,
+            behavior: 'smooth'
+          })
+        }
+      })
+      singsState = true
     }
   }
   tabla('ListaRegBanco')

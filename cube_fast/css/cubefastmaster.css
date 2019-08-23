@@ -127,7 +127,7 @@
 .btnTable--down {
   bottom: 4.5em;
 }
-.btnTable:hover,
+/* .btnTable:hover, */
 .btnTable.inactive {
   opacity: 0 !important;
 }
