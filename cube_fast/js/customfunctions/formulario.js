@@ -149,7 +149,6 @@ $(function() {
     })
 
     function setBtnSings() {
-      console.log(`#${indentifier} .dataTables_scrollBody`)
       const tableBody = document.querySelector(`.dataTables_scrollBody`)
       const tableWrapper = tableBody.parentElement.parentElement
       const btnDown = document.createElement('span')
@@ -179,7 +178,7 @@ $(function() {
           btnDown.classList.remove('inactive')
         }
 
-        if (top + scrollFactor < viewHeight) {
+        if (top < scrollFactor) {
           btnUP.classList.add('inactive')
         } else {
           btnUP.classList.remove('inactive')

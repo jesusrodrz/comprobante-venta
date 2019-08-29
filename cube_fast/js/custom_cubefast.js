@@ -50,11 +50,28 @@ $(function () {
         e.stopPropagation();
     });
     /*Funcion para agregar clase a una fila de la tabla*/
-    $('.table-main').on('click', 'tr', function (e) {
-        $('tr.selected-row').removeClass('selected-row').removeAttr("style");
-        $(this).addClass('selected-row').css("cssText", 'background-color : #41b3f9 !important');
-    });
+    // $('.table-main').on('click', 'tr', function (e) {
+    //     $('tr.selected-row').removeClass('selected-row').removeAttr("style");
+    //     $(this).addClass('selected-row').css("cssText", 'background-color : #41b3f9 !important');
+    // });
+    document.body.addEventListener('click', e =>{
+        const clickedRow = e.target.closest('.table-main tr')
+        const table =  e.target.closest('.table-main')
+        
+        if( clickedRow ){
+            const selectedRow = table.querySelector('tr.selected-row')
 
+            if(selectedRow){
+
+                selectedRow.classList.remove('selected-row')
+                selectedRow.removeAttribute('style')
+            }
+
+            clickedRow.classList.add('selected-row')
+        }
+    })
+
+    
     swalConfirm = function (sTitle, sText, callback) {
         swal({
             title: sTitle,

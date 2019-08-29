@@ -139,3 +139,7 @@
     transform: translateY(1em);
   }
 }
+
+table.table > tbody > tr.selected-row {
+  background-color: #41b3f9 !important;
+}
